@@ -14,6 +14,12 @@
 		0025965B28525F9700AC90C7 /* GBShop_KSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0025965A28525F9700AC90C7 /* GBShop_KSTests.swift */; };
 		0025966528525F9700AC90C7 /* GBShop_KSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0025966428525F9700AC90C7 /* GBShop_KSUITests.swift */; };
 		0025966728525F9700AC90C7 /* GBShop_KSUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0025966628525F9700AC90C7 /* GBShop_KSUITestsLaunchTests.swift */; };
+		0032D229286110AF001CFA8A /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 0032D228286110AF001CFA8A /* Alamofire */; };
+		0032D22C286111AD001CFA8A /* AbstractErrorParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0032D22B286111AD001CFA8A /* AbstractErrorParser.swift */; };
+		0032D22E286112AE001CFA8A /* ErrorParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0032D22D286112AE001CFA8A /* ErrorParser.swift */; };
+		0032D230286117A4001CFA8A /* ResponseCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0032D22F286117A4001CFA8A /* ResponseCodable.swift */; };
+		0032D23228611E2F001CFA8A /* AbstractRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0032D23128611E2F001CFA8A /* AbstractRequestFactory.swift */; };
+		0032D234286121BB001CFA8A /* RequestRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0032D233286121BB001CFA8A /* RequestRouter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +51,11 @@
 		0025966028525F9700AC90C7 /* GBShop_KSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GBShop_KSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0025966428525F9700AC90C7 /* GBShop_KSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GBShop_KSUITests.swift; sourceTree = "<group>"; };
 		0025966628525F9700AC90C7 /* GBShop_KSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GBShop_KSUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		0032D22B286111AD001CFA8A /* AbstractErrorParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractErrorParser.swift; sourceTree = "<group>"; };
+		0032D22D286112AE001CFA8A /* ErrorParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorParser.swift; sourceTree = "<group>"; };
+		0032D22F286117A4001CFA8A /* ResponseCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseCodable.swift; sourceTree = "<group>"; };
+		0032D23128611E2F001CFA8A /* AbstractRequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractRequestFactory.swift; sourceTree = "<group>"; };
+		0032D233286121BB001CFA8A /* RequestRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestRouter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0032D229286110AF001CFA8A /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -153,6 +165,7 @@
 		0025967628525FB600AC90C7 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				0032D22A28611123001CFA8A /* Network */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -185,6 +198,18 @@
 			path = BusinessLogic;
 			sourceTree = "<group>";
 		};
+		0032D22A28611123001CFA8A /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				0032D22B286111AD001CFA8A /* AbstractErrorParser.swift */,
+				0032D22D286112AE001CFA8A /* ErrorParser.swift */,
+				0032D22F286117A4001CFA8A /* ResponseCodable.swift */,
+				0032D23128611E2F001CFA8A /* AbstractRequestFactory.swift */,
+				0032D233286121BB001CFA8A /* RequestRouter.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -201,6 +226,9 @@
 			dependencies = (
 			);
 			name = GBShop_KS;
+			packageProductDependencies = (
+				0032D228286110AF001CFA8A /* Alamofire */,
+			);
 			productName = GBShop_KS;
 			productReference = 0025964028525F9400AC90C7 /* GBShop_KS.app */;
 			productType = "com.apple.product-type.application";
@@ -273,6 +301,9 @@
 				Base,
 			);
 			mainGroup = 0025963728525F9400AC90C7;
+			packageReferences = (
+				0032D227286110AF001CFA8A /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = 0025964128525F9400AC90C7 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -315,8 +346,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0032D22C286111AD001CFA8A /* AbstractErrorParser.swift in Sources */,
+				0032D230286117A4001CFA8A /* ResponseCodable.swift in Sources */,
+				0032D234286121BB001CFA8A /* RequestRouter.swift in Sources */,
 				0025964428525F9500AC90C7 /* AppDelegate.swift in Sources */,
 				0025964628525F9500AC90C7 /* SceneDelegate.swift in Sources */,
+				0032D23228611E2F001CFA8A /* AbstractRequestFactory.swift in Sources */,
+				0032D22E286112AE001CFA8A /* ErrorParser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -650,6 +686,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		0032D227286110AF001CFA8A /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.6.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0032D228286110AF001CFA8A /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0032D227286110AF001CFA8A /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 0025963828525F9400AC90C7 /* Project object */;
 }
