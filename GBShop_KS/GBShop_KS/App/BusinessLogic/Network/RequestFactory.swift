@@ -32,4 +32,10 @@ class RequestFactory {
                     queue: sessionQueue)
     }
     
+    // MARK: - Regist
+    func makeRegistRequestFactory() -> RegistrationRequestFactory {
+        let errorParser = makeErrorParser()
+        return Registration(errorParser: errorParser, sessinManager: commonSession, queue: sessionQueue)
+    }
+    
 }

@@ -60,8 +60,8 @@ extension Auth {
         let password: String
         var parameters: Parameters? {
             return [
-                "username": login,
-                "password": password
+                "username": login ,
+                "password": password 
             ]
         }
     }
