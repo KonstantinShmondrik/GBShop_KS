@@ -33,10 +33,22 @@ extension Auth: AuthRequestFactory {
         let requestModel = Login(baseURL: baseUrl,
                                  login: userName,
                                  password: password)
-        self.request(request: requestModel, completionHandler: completionHandler)
+        self.request(request: requestModel,
+                     completionHandler: completionHandler)
     }
 }
 
+extension Auth {
+    
+    func logout(userID: Int, completionHandler: @escaping (AFDataResponse<LogoutResult>) -> Void) {
+        let requestModel = Logout(baseURL: baseUrl, userID: userID)
+        self.request(request: requestModel,
+                     completionHandler: completionHandler)
+    }
+}
+
+
+// MARK: Login
 extension Auth {
     
     struct Login: RequestRouter {
@@ -50,6 +62,23 @@ extension Auth {
             return [
                 "username": login,
                 "password": password
+            ]
+        }
+    }
+}
+
+// MARK: Logout
+extension Auth {
+    
+    struct Logout: RequestRouter {
+        var baseURL: URL
+        var metod: HTTPMethod = .get
+        var path: String = "logout.json"
+        
+        let userID: Int
+        var parameters: Parameters? {
+            return [
+                "id_user": userID
             ]
         }
     }
