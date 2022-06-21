@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+struct СhangeUserDataResult: Codable {
+    let result: Int
+}

@@ -18,6 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let auth = requestFactory.makeAuthRequestFactory()
         let regist = requestFactory.makeRegistRequestFactory()
+        let changeUserData = requestFactory.makeСhangeUserDataFactory()
         
         let user = User(id: 123,
                         login: "Somebody",
@@ -56,6 +57,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
         
+        changeUserData.changeUserData(user: user) {response in
+            switch response.result {
+            case .success(let result):
+                print(result)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
         
         return true
     }

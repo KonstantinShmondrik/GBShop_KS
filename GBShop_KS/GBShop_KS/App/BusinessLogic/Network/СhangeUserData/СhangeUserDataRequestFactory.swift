@@ -8,7 +8,7 @@
 import Foundation
 import Alamofire
 
-protocol СhangeUserDataFactory {
+protocol СhangeUserDataRequestFactory {
     func changeUserData(user: User,
-                  completionHandler: @escaping (AFDataResponse<RegistrationResult>) -> Void)
+                  completionHandler: @escaping (AFDataResponse<СhangeUserDataResult>) -> Void)
 }

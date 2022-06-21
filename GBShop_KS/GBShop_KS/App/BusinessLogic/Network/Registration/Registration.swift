@@ -55,8 +55,6 @@ extension Registration {
                 "bio": user.bio ?? ""
             ]
         }
-        
-        
     }
 }
 

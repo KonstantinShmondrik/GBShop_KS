@@ -38,4 +38,9 @@ class RequestFactory {
         return Registration(errorParser: errorParser, sessinManager: commonSession, queue: sessionQueue)
     }
     
+    // MARK: - СhangeUserData
+    func makeСhangeUserDataFactory() -> СhangeUserDataRequestFactory {
+        let errorParser = makeErrorParser()
+        return СhangeUserData(errorParser: errorParser, sessinManager: commonSession, queue: sessionQueue)
+    }
 }
