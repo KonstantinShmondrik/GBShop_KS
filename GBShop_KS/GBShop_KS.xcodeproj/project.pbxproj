@@ -20,6 +20,11 @@
 		0032D230286117A4001CFA8A /* ResponseCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0032D22F286117A4001CFA8A /* ResponseCodable.swift */; };
 		0032D23228611E2F001CFA8A /* AbstractRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0032D23128611E2F001CFA8A /* AbstractRequestFactory.swift */; };
 		0032D234286121BB001CFA8A /* RequestRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0032D233286121BB001CFA8A /* RequestRouter.swift */; };
+		0032D2362861D00D001CFA8A /* LoginResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0032D2352861D00D001CFA8A /* LoginResult.swift */; };
+		0032D2382861D021001CFA8A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0032D2372861D021001CFA8A /* User.swift */; };
+		0032D23B2861D207001CFA8A /* AuthRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0032D23A2861D207001CFA8A /* AuthRequestFactory.swift */; };
+		0032D23D2861D2ED001CFA8A /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0032D23C2861D2ED001CFA8A /* Auth.swift */; };
+		0032D23F2861D976001CFA8A /* RequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0032D23E2861D976001CFA8A /* RequestFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +61,11 @@
 		0032D22F286117A4001CFA8A /* ResponseCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseCodable.swift; sourceTree = "<group>"; };
 		0032D23128611E2F001CFA8A /* AbstractRequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractRequestFactory.swift; sourceTree = "<group>"; };
 		0032D233286121BB001CFA8A /* RequestRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestRouter.swift; sourceTree = "<group>"; };
+		0032D2352861D00D001CFA8A /* LoginResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResult.swift; sourceTree = "<group>"; };
+		0032D2372861D021001CFA8A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		0032D23A2861D207001CFA8A /* AuthRequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRequestFactory.swift; sourceTree = "<group>"; };
+		0032D23C2861D2ED001CFA8A /* Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auth.swift; sourceTree = "<group>"; };
+		0032D23E2861D976001CFA8A /* RequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,6 +197,8 @@
 		0025967928525FC400AC90C7 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				0032D2352861D00D001CFA8A /* LoginResult.swift */,
+				0032D2372861D021001CFA8A /* User.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -194,6 +206,7 @@
 		0025967A28525FC700AC90C7 /* BusinessLogic */ = {
 			isa = PBXGroup;
 			children = (
+				0032D2392861D1D0001CFA8A /* Network */,
 			);
 			path = BusinessLogic;
 			sourceTree = "<group>";
@@ -201,13 +214,47 @@
 		0032D22A28611123001CFA8A /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				0032D22B286111AD001CFA8A /* AbstractErrorParser.swift */,
-				0032D22D286112AE001CFA8A /* ErrorParser.swift */,
+				0032D2412861EBB0001CFA8A /* Error */,
+				0032D2422861EBC8001CFA8A /* Router */,
 				0032D22F286117A4001CFA8A /* ResponseCodable.swift */,
 				0032D23128611E2F001CFA8A /* AbstractRequestFactory.swift */,
-				0032D233286121BB001CFA8A /* RequestRouter.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		0032D2392861D1D0001CFA8A /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				0032D23E2861D976001CFA8A /* RequestFactory.swift */,
+				0032D2402861EB77001CFA8A /* Auth */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		0032D2402861EB77001CFA8A /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				0032D23A2861D207001CFA8A /* AuthRequestFactory.swift */,
+				0032D23C2861D2ED001CFA8A /* Auth.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		0032D2412861EBB0001CFA8A /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				0032D22B286111AD001CFA8A /* AbstractErrorParser.swift */,
+				0032D22D286112AE001CFA8A /* ErrorParser.swift */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
+		0032D2422861EBC8001CFA8A /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				0032D233286121BB001CFA8A /* RequestRouter.swift */,
+			);
+			path = Router;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -346,10 +393,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0032D23F2861D976001CFA8A /* RequestFactory.swift in Sources */,
 				0032D22C286111AD001CFA8A /* AbstractErrorParser.swift in Sources */,
 				0032D230286117A4001CFA8A /* ResponseCodable.swift in Sources */,
+				0032D23B2861D207001CFA8A /* AuthRequestFactory.swift in Sources */,
 				0032D234286121BB001CFA8A /* RequestRouter.swift in Sources */,
 				0025964428525F9500AC90C7 /* AppDelegate.swift in Sources */,
+				0032D2362861D00D001CFA8A /* LoginResult.swift in Sources */,
+				0032D23D2861D2ED001CFA8A /* Auth.swift in Sources */,
+				0032D2382861D021001CFA8A /* User.swift in Sources */,
 				0025964628525F9500AC90C7 /* SceneDelegate.swift in Sources */,
 				0032D23228611E2F001CFA8A /* AbstractRequestFactory.swift in Sources */,
 				0032D22E286112AE001CFA8A /* ErrorParser.swift in Sources */,
