@@ -33,6 +33,7 @@
 		0032D2512862239C001CFA8A /* СhangeUserDataRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0032D2502862239C001CFA8A /* СhangeUserDataRequestFactory.swift */; };
 		0032D253286223AD001CFA8A /* СhangeUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0032D252286223AD001CFA8A /* СhangeUserData.swift */; };
 		004CA932286D9979005F2C7F /* ResponseCodableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004CA931286D9979005F2C7F /* ResponseCodableTests.swift */; };
+		004CA934286DB54B005F2C7F /* RequestsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004CA933286DB54B005F2C7F /* RequestsTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +83,7 @@
 		0032D2502862239C001CFA8A /* СhangeUserDataRequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "СhangeUserDataRequestFactory.swift"; sourceTree = "<group>"; };
 		0032D252286223AD001CFA8A /* СhangeUserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "СhangeUserData.swift"; sourceTree = "<group>"; };
 		004CA931286D9979005F2C7F /* ResponseCodableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseCodableTests.swift; sourceTree = "<group>"; };
+		004CA933286DB54B005F2C7F /* RequestsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestsTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +148,7 @@
 			children = (
 				0025965A28525F9700AC90C7 /* GBShop_KSTests.swift */,
 				004CA931286D9979005F2C7F /* ResponseCodableTests.swift */,
+				004CA933286DB54B005F2C7F /* RequestsTests.swift */,
 			);
 			path = GBShop_KSTests;
 			sourceTree = "<group>";
@@ -469,6 +472,7 @@
 			files = (
 				0025965B28525F9700AC90C7 /* GBShop_KSTests.swift in Sources */,
 				004CA932286D9979005F2C7F /* ResponseCodableTests.swift in Sources */,
+				004CA934286DB54B005F2C7F /* RequestsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
