@@ -39,7 +39,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
         
-        auth.logout(userID: user.id) { response in
+        auth.logout(userID: user.id ?? 0) { response in
             switch response.result {
             case .success(let result):
                 print(result)

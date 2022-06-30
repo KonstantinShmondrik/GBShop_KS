@@ -54,7 +54,7 @@ class RequestsTests: XCTestCase {
     
     func testShouldPerformAuthRequest() {
         let factory = requestFactory.makeAuthRequestFactory()
-        factory.logout(userID: user.id) { [weak self] response in
+        factory.logout(userID: user.id ?? 0) { [weak self] response in
             switch response.result {
             case .success(let result):
                 XCTAssertEqual(result.result, 1)
@@ -81,7 +81,7 @@ class RequestsTests: XCTestCase {
     }
     func testShouldPerformLogoutRequest() {
         let factory = requestFactory.makeAuthRequestFactory()
-        factory.logout(userID: user.id) { [weak self] response in
+        factory.logout(userID: user.id ?? 0) { [weak self] response in
             switch response.result {
             case .success(let result):
                 XCTAssertEqual(result.result, 1)
