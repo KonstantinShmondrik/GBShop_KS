@@ -14,7 +14,7 @@ class RequestsTests: XCTestCase {
     var  user: User!
     
     let expectation = XCTestExpectation(description: "Perform request.")
-    let timeoutValu = 10.0
+    let timeoutValue = 10.0
     
     
     override func setUpWithError() throws {
@@ -49,7 +49,7 @@ class RequestsTests: XCTestCase {
             }
             self?.expectation.fulfill()
         }
-        wait(for: [expectation], timeout: timeoutValu)
+        wait(for: [expectation], timeout: timeoutValue)
     }
     
     func testShouldPerformAuthRequest() {
@@ -63,7 +63,7 @@ class RequestsTests: XCTestCase {
             }
             self?.expectation.fulfill()
         }
-        wait(for: [expectation], timeout: timeoutValu)
+        wait(for: [expectation], timeout: timeoutValue)
     }
     
     func testShouldPerformChangeUserDataRequest() {
@@ -77,7 +77,7 @@ class RequestsTests: XCTestCase {
             }
             self?.expectation.fulfill()
         }
-        wait(for: [expectation], timeout: timeoutValu)
+        wait(for: [expectation], timeout: timeoutValue)
     }
     func testShouldPerformLogoutRequest() {
         let factory = requestFactory.makeAuthRequestFactory()
@@ -90,8 +90,33 @@ class RequestsTests: XCTestCase {
             }
             self?.expectation.fulfill()
         }
-        wait(for: [expectation], timeout: timeoutValu)
+        wait(for: [expectation], timeout: timeoutValue)
+    }
+    
+    func testShouldPerformGetCatalogRequest() {
+        let factory = requestFactory.makeGetCatalogRequestFactory()
+        factory.getCatalog(pageNumber: 1, categoryId: 1) { [weak self] response in
+            switch response.result {
+            case .success: break
+            case .failure:
+                XCTFail()
+            }
+            self?.expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: timeoutValue)
+    }
+    
+    func testShouldPerformGetGoodByldRequest() {
+        let factory = requestFactory.makeGetGoodByldRequestFactory()
+        factory.getGoodByld(productId: 123) { [weak self] response in
+            switch response.result {
+            case .success(let result):
+                XCTAssertEqual(result.result, 1)
+            case .failure:
+                XCTFail()
+            }
+            self?.expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: timeoutValue)
     }
 }
-
-
