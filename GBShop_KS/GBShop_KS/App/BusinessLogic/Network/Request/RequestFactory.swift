@@ -35,12 +35,32 @@ class RequestFactory {
     // MARK: - Regist
     func makeRegistRequestFactory() -> RegistrationRequestFactory {
         let errorParser = makeErrorParser()
-        return Registration(errorParser: errorParser, sessinManager: commonSession, queue: sessionQueue)
+        return Registration(errorParser: errorParser,
+                            sessinManager: commonSession,
+                            queue: sessionQueue)
     }
     
     // MARK: - СhangeUserData
     func makeСhangeUserDataFactory() -> СhangeUserDataRequestFactory {
         let errorParser = makeErrorParser()
-        return СhangeUserData(errorParser: errorParser, sessinManager: commonSession, queue: sessionQueue)
+        return СhangeUserData(errorParser: errorParser,
+                              sessinManager: commonSession,
+                              queue: sessionQueue)
+    }
+    
+    // MARK: - GetCatalog
+    func makeGetCatalogRequestFactory() -> CatalogRequestFactory {
+        let errorParser = makeErrorParser()
+        return Catalog(errorParser: errorParser,
+                       sessinManager: commonSession,
+                       queue: sessionQueue)
+    }
+    
+    // MARK: - GetGoodByldFactory
+    func makeGetGoodByldRequestFactory() -> GoodByldRequestFactory {
+        let errorParser = makeErrorParser()
+        return GoodByld(errorParser: errorParser,
+                        sessinManager: commonSession,
+                        queue: sessionQueue)
     }
 }

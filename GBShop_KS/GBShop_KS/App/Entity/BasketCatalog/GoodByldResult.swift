@@ -8,7 +8,7 @@
 import Foundation
 
 // MARK: - GoodByld
-struct GoodByld: Codable {
+struct GoodByldResult: Codable {
     let result: Int
     let productName: String
     let productPrice: Int

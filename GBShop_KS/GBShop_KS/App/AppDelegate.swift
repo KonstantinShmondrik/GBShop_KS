@@ -19,6 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let auth = requestFactory.makeAuthRequestFactory()
         let regist = requestFactory.makeRegistRequestFactory()
         let changeUserData = requestFactory.makeСhangeUserDataFactory()
+        let getCatalog = requestFactory.makeGetCatalogRequestFactory()
+        let getGoodByld = requestFactory.makeGetGoodByldRequestFactory()
         
         let user = User(id: 123,
                         login: "Somebody",
@@ -29,6 +31,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                         gender: "m",
                         creditCard: "9872389-2424-234224-234",
                         bio: "This is good! I think I will switch to another language")
+        
+        let pageNumber = 1
+        let categoryId = 1
+        let idProduct = 123
         
         auth.login(userName: "Somebody", password: "mypassword") { response in
             switch response.result {
@@ -58,6 +64,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         changeUserData.changeUserData(user: user) {response in
+            switch response.result {
+            case .success(let result):
+                print(result)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+        
+        getCatalog.getCatalog(pageNumber: pageNumber,
+                              categoryId: categoryId) { response in
+            switch response.result {
+            case .success(let result):
+                print(result)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+        
+        getGoodByld.getGoodByld(productId: idProduct) { response in
             switch response.result {
             case .success(let result):
                 print(result)
