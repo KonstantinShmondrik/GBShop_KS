@@ -13,7 +13,8 @@ class Catalog: AbstractRequestFactory {
     let errorParser: AbstractErrorParser
     let sessionManager: Session
     let queue: DispatchQueue
-    let baseUrl = URL(string: "https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses/")!
+    //    let baseUrl = URL(string: "https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses/")!
+    let baseUrl = URL(string: "https://stormy-reef-78957.herokuapp.com/")!
     
     init (
         errorParser: AbstractErrorParser,
@@ -28,7 +29,7 @@ class Catalog: AbstractRequestFactory {
 extension Catalog: CatalogRequestFactory {
     
     
-    func getCatalog(pageNumber: Int, categoryId: Int, completionHandler: @escaping (AFDataResponse<[ProductResult]>) -> Void) {
+    func getCatalog(pageNumber: Int, categoryId: Int, completionHandler: @escaping (AFDataResponse<[CatalogResult]>) -> Void) {
         let requestModel = GetCatalog(baseURL: baseUrl, pageNumber: pageNumber, categoryId: categoryId)
         self.request(request: requestModel,
                      completionHandler: completionHandler)
@@ -38,7 +39,7 @@ extension Catalog: CatalogRequestFactory {
 extension Catalog {
     struct GetCatalog: RequestRouter {
         var baseURL: URL
-        var metod: HTTPMethod = .get
+        var metod: HTTPMethod = .post
         var path: String = "catalogData.json"
         let pageNumber: Int
         let categoryId: Int

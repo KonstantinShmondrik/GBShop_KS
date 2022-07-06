@@ -11,13 +11,18 @@ import Foundation
 struct GoodByldResult: Codable {
     let result: Int
     let productName: String
-    let productPrice: Int
-    let productDescription: String
+    let price: Int
+    let description: String
+    let productId: Int
+    let picUrl: String
 
     enum CodingKeys: String, CodingKey {
         case result
         case productName = "product_name"
-        case productPrice = "product_price"
-        case productDescription = "product_description"
+        case price
+        case description
+        case productId = "id_product"
+        case picUrl
     }
 }
+

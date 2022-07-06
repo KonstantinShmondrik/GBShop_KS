@@ -23,10 +23,18 @@ struct ProductResult: Codable {
     let idProduct: Int
     let productName: String
     let price: Int
+    let shortDescription: String
+    let picUrl: String
     
     enum CodingKeys: String, CodingKey {
         case idProduct = "id_product"
         case productName = "product_name"
         case price
+        case shortDescription
+        case picUrl
     }
 }
+
+
+
+
