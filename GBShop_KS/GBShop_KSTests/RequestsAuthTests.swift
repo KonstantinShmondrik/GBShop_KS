@@ -9,7 +9,7 @@ import XCTest
 import Alamofire
 @testable import GBShop_KS
 
-class RequestsTests: XCTestCase {
+class RequestsAuthTests: XCTestCase {
     var requestFactory: RequestFactory!
     var  user: User!
     
@@ -22,13 +22,13 @@ class RequestsTests: XCTestCase {
         requestFactory = RequestFactory()
         user = User(id: 123,
                     login: "Somebody",
-                    name: "John",
-                    lastname: "Doe",
                     password: "mypassword",
                     email: "some@some.ru",
                     gender: "m",
                     creditCard: "9872389-2424-234224-234",
-                    bio: "This is good! I think I will switch to another language")
+                    bio: "This is good! I think I will switch to another language",
+                    name: "John",
+                    lastname: "Doe")
         
     }
     
@@ -81,34 +81,7 @@ class RequestsTests: XCTestCase {
     }
     func testShouldPerformLogoutRequest() {
         let factory = requestFactory.makeAuthRequestFactory()
-        factory.logout(userID: user.id ?? 0) { [weak self] response in
-            switch response.result {
-            case .success(let result):
-                XCTAssertEqual(result.result, 1)
-            case .failure:
-                XCTFail()
-            }
-            self?.expectation.fulfill()
-        }
-        wait(for: [expectation], timeout: timeoutValue)
-    }
-    
-    func testShouldPerformGetCatalogRequest() {
-        let factory = requestFactory.makeGetCatalogRequestFactory()
-        factory.getCatalog(pageNumber: 1, categoryId: 1) { [weak self] response in
-            switch response.result {
-            case .success: break
-            case .failure:
-                XCTFail()
-            }
-            self?.expectation.fulfill()
-        }
-        wait(for: [expectation], timeout: timeoutValue)
-    }
-    
-    func testShouldPerformGetGoodByldRequest() {
-        let factory = requestFactory.makeGetGoodByldRequestFactory()
-        factory.getGoodByld(productId: 123) { [weak self] response in
+        factory.logout(userID: user.id!) {[weak self] response in
             switch response.result {
             case .success(let result):
                 XCTAssertEqual(result.result, 1)

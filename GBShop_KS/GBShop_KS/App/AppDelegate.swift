@@ -19,8 +19,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let auth = requestFactory.makeAuthRequestFactory()
         let regist = requestFactory.makeRegistRequestFactory()
         let changeUserData = requestFactory.makeСhangeUserDataFactory()
-        let getCatalog = requestFactory.makeGetCatalogRequestFactory()
-        let getGoodByld = requestFactory.makeGetGoodByldRequestFactory()
+        let Catalog = requestFactory.makeGetCatalogRequestFactory()
+        let GoodByld = requestFactory.makeGetGoodByldRequestFactory()
+        let review = requestFactory.makeGetRewiewRequestFactory()
         
         let user = User(id: 123,
                         login: "Somebody",
@@ -35,6 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let pageNumber = 1
         let categoryId = 1
         let idProduct = 123
+        let reviewResult = ReviewResult(userId: 123, reviewText: "Хороший товар - надо брать!", productId: 123)
         
         auth.login(userName: "Somebody", password: "mypassword") { response in
             switch response.result {
@@ -72,8 +74,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
         
-        getCatalog.getCatalog(pageNumber: pageNumber,
-                              categoryId: categoryId) { response in
+        Catalog.getCatalog(pageNumber: pageNumber,
+                           categoryId: categoryId) { response in
             switch response.result {
             case .success(let result):
                 print(result)
@@ -82,7 +84,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
         
-        getGoodByld.getGoodByld(productId: idProduct) { response in
+        GoodByld.getGoodByld(productId: idProduct) { response in
+            switch response.result {
+            case .success(let result):
+                print(result)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+        
+        review.getReviews(productId: idProduct) { response in
+            switch response.result {
+            case .success(let result):
+                print(result)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+        
+        review.addReview(review: reviewResult) { response in
+            switch response.result {
+            case .success(let result):
+                print(result)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+        
+        review.removeReview(review: reviewResult) { response in
             switch response.result {
             case .success(let result):
                 print(result)
@@ -93,6 +122,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         return true
     }
+    
+    
     
     // MARK: UISceneSession Lifecycle
     

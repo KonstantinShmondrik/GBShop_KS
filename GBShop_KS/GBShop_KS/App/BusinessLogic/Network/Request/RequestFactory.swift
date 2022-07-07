@@ -63,4 +63,29 @@ class RequestFactory {
                         sessinManager: commonSession,
                         queue: sessionQueue)
     }
+    
+    // MARK: - GetRewiewRequestFactory
+    func makeGetRewiewRequestFactory() -> ReviewRequestFactory {
+        let errorParser = makeErrorParser()
+        return Review(errorParser: errorParser,
+                      sessinManager: commonSession,
+                      queue: sessionQueue)
+    }
+    
+    // MARK: - AddRewiewRequestFactory
+    func makeAddRewiewRequestFactory() -> ReviewRequestFactory {
+        let errorParser = makeErrorParser()
+        return Review(errorParser: errorParser,
+                      sessinManager: commonSession,
+                      queue: sessionQueue)
+    }
+    
+    // MARK: - RemoveRewiewRequestFactory
+    func makeRemoveRewiewRequestFactory() -> ReviewRequestFactory {
+        let errorParser = makeErrorParser()
+        return Review(errorParser: errorParser,
+                      sessinManager: commonSession,
+                      queue: sessionQueue)
+    }
+    
 }
