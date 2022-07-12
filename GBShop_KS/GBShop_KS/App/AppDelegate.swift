@@ -21,7 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let changeUserData = requestFactory.makeСhangeUserDataFactory()
         let Catalog = requestFactory.makeGetCatalogRequestFactory()
         let GoodByld = requestFactory.makeGetGoodByldRequestFactory()
-        let review = requestFactory.makeGetRewiewRequestFactory()
+        let review = requestFactory.makeRewiewRequestFactory()
+        let basket = requestFactory.makeBasketRequestFactory()
         
         let user = User(id: 123,
                         login: "Somebody",
@@ -37,6 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let categoryId = 1
         let idProduct = 123
         let reviewResult = ReviewResult(userId: 123, reviewText: "Хороший товар - надо брать!", productId: 123)
+        let basketRequest = BasketRequest(idProduct: idProduct, quantity: 1)
         
         auth.login(userName: "Somebody", password: "mypassword") { response in
             switch response.result {
@@ -46,7 +48,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 print(error.localizedDescription)
             }
         }
-        
+
         auth.logout(userID: user.id ?? 0) { response in
             switch response.result {
             case .success(let result):
@@ -55,7 +57,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 print(error.localizedDescription)
             }
         }
-        
+
         regist.register(user: user) {response in
             switch response.result {
             case .success(let result):
@@ -64,7 +66,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 print(error.localizedDescription)
             }
         }
-        
+
         changeUserData.changeUserData(user: user) {response in
             switch response.result {
             case .success(let result):
@@ -73,7 +75,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 print(error.localizedDescription)
             }
         }
-        
+
         Catalog.getCatalog(pageNumber: pageNumber,
                            categoryId: categoryId) { response in
             switch response.result {
@@ -83,7 +85,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 print(error.localizedDescription)
             }
         }
-        
+
         GoodByld.getGoodByld(productId: idProduct) { response in
             switch response.result {
             case .success(let result):
@@ -92,7 +94,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 print(error.localizedDescription)
             }
         }
-        
+
         review.getReviews(productId: idProduct) { response in
             switch response.result {
             case .success(let result):
@@ -101,7 +103,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 print(error.localizedDescription)
             }
         }
-        
+
         review.addReview(review: reviewResult) { response in
             switch response.result {
             case .success(let result):
@@ -110,7 +112,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 print(error.localizedDescription)
             }
         }
-        
+
         review.removeReview(review: reviewResult) { response in
             switch response.result {
             case .success(let result):
@@ -120,8 +122,46 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
         
+        basket.addToBasket(basket: basketRequest) { response in
+            switch response.result {
+            case .success(let result):
+                print(result)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+        
+        basket.deleteFromBasket(basket: basketRequest) { response in
+            switch response.result {
+            case .success(let result):
+                print(result)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+
+        basket.getBusket(user: user) { response in
+            switch response.result {
+            case .success(let result):
+                print(result)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+
+        basket.payBasket(user: user) { response in
+            switch response.result {
+            case .success(let result):
+                print(result)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+
         return true
     }
+    
+
     
     
     

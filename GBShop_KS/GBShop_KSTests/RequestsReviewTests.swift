@@ -28,7 +28,7 @@ class RequestsReviewTests: XCTestCase {
     }
     
     func testShouldPerformGetReviewsRequest() {
-        let factory = requestFactory.makeGetRewiewRequestFactory()
+        let factory = requestFactory.makeRewiewRequestFactory()
         
         factory.getReviews(productId: 123) { response in
             switch response.result {
