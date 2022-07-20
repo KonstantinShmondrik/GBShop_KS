@@ -18,6 +18,9 @@
 		00037505287DC31C0080758D /* BasketRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00037504287DC31C0080758D /* BasketRequest.swift */; };
 		00037507287DC4A10080758D /* Basket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00037506287DC4A10080758D /* Basket.swift */; };
 		00037509287DD3E10080758D /* RequestsBasketTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00037508287DD3E00080758D /* RequestsBasketTests.swift */; };
+		0003750C2888211E0080758D /* StartManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0003750B2888211E0080758D /* StartManager.swift */; };
+		0003750F288821F70080758D /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0003750E288821F70080758D /* AuthViewController.swift */; };
+		00037513288827D60080758D /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00037512288827D60080758D /* AuthView.swift */; };
 		0025964428525F9500AC90C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0025964328525F9500AC90C7 /* AppDelegate.swift */; };
 		0025964628525F9500AC90C7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0025964528525F9500AC90C7 /* SceneDelegate.swift */; };
 		0025964D28525F9700AC90C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0025964C28525F9700AC90C7 /* Assets.xcassets */; };
@@ -78,6 +81,9 @@
 		00037504287DC31C0080758D /* BasketRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketRequest.swift; sourceTree = "<group>"; };
 		00037506287DC4A10080758D /* Basket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Basket.swift; sourceTree = "<group>"; };
 		00037508287DD3E00080758D /* RequestsBasketTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestsBasketTests.swift; sourceTree = "<group>"; };
+		0003750B2888211E0080758D /* StartManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartManager.swift; sourceTree = "<group>"; };
+		0003750E288821F70080758D /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
+		00037512288827D60080758D /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
 		0025964028525F9400AC90C7 /* GBShop_KS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GBShop_KS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0025964328525F9500AC90C7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0025964528525F9500AC90C7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -171,6 +177,38 @@
 				00037504287DC31C0080758D /* BasketRequest.swift */,
 			);
 			path = Basket;
+			sourceTree = "<group>";
+		};
+		0003750A288821090080758D /* AppStartManager */ = {
+			isa = PBXGroup;
+			children = (
+				0003750B2888211E0080758D /* StartManager.swift */,
+			);
+			path = AppStartManager;
+			sourceTree = "<group>";
+		};
+		0003750D288821CE0080758D /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				00037510288827770080758D /* Controller */,
+				0003750E288821F70080758D /* AuthViewController.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		00037510288827770080758D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		00037511288827AD0080758D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				00037512288827D60080758D /* AuthView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		0025963728525F9400AC90C7 = {
@@ -267,6 +305,8 @@
 		0025967728525FBC00AC90C7 /* Flows */ = {
 			isa = PBXGroup;
 			children = (
+				0003750D288821CE0080758D /* Auth */,
+				00037511288827AD0080758D /* View */,
 			);
 			path = Flows;
 			sourceTree = "<group>";
@@ -292,6 +332,7 @@
 		0025967A28525FC700AC90C7 /* BusinessLogic */ = {
 			isa = PBXGroup;
 			children = (
+				0003750A288821090080758D /* AppStartManager */,
 				0032D2392861D1D0001CFA8A /* Network */,
 			);
 			path = BusinessLogic;
@@ -573,9 +614,11 @@
 				0025964428525F9500AC90C7 /* AppDelegate.swift in Sources */,
 				0032D2512862239C001CFA8A /* СhangeUserDataRequestFactory.swift in Sources */,
 				0032D24C286212C3001CFA8A /* Registration.swift in Sources */,
+				0003750C2888211E0080758D /* StartManager.swift in Sources */,
 				0032D23D2861D2ED001CFA8A /* Auth.swift in Sources */,
 				0032D24A28621285001CFA8A /* RegistrationRequestFactory.swift in Sources */,
 				000374F92877481B0080758D /* ReviewRequestFactory.swift in Sources */,
+				00037513288827D60080758D /* AuthView.swift in Sources */,
 				004CA936286DCA29005F2C7F /* CatalogResult.swift in Sources */,
 				0032D2382861D021001CFA8A /* User.swift in Sources */,
 				000374F728773C030080758D /* ReviewResult.swift in Sources */,
@@ -584,6 +627,7 @@
 				00037505287DC31C0080758D /* BasketRequest.swift in Sources */,
 				0032D22E286112AE001CFA8A /* ErrorParser.swift in Sources */,
 				004CA944286DD6B7005F2C7F /* Catalog.swift in Sources */,
+				0003750F288821F70080758D /* AuthViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

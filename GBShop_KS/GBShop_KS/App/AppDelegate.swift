@@ -11,11 +11,12 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
+    
     let requestFactory = RequestFactory()
     
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
+    
         let auth = requestFactory.makeAuthRequestFactory()
         let regist = requestFactory.makeRegistRequestFactory()
         let changeUserData = requestFactory.makeСhangeUserDataFactory()
@@ -40,123 +41,123 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let reviewResult = ReviewResult(userId: 123, reviewText: "Хороший товар - надо брать!", productId: 123)
         let basketRequest = BasketRequest(idProduct: idProduct, quantity: 1)
         
-        auth.login(userName: "Somebody", password: "mypassword") { response in
-            switch response.result {
-            case .success(let result):
-                print(result)
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
+//        auth.login(userName: "Somebody", password: "mypassword") { response in
+//            switch response.result {
+//            case .success(let result):
+//                print(result)
+//            case .failure(let error):
+//                print(error.localizedDescription)
+//            }
+//        }
 
-        auth.logout(userID: user.id ?? 0) { response in
-            switch response.result {
-            case .success(let result):
-                print(result)
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
-
-        regist.register(user: user) {response in
-            switch response.result {
-            case .success(let result):
-                print(result)
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
-
-        changeUserData.changeUserData(user: user) {response in
-            switch response.result {
-            case .success(let result):
-                print(result)
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
-
-        Catalog.getCatalog(pageNumber: pageNumber,
-                           categoryId: categoryId) { response in
-            switch response.result {
-            case .success(let result):
-                print(result)
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
-
-        GoodByld.getGoodByld(productId: idProduct) { response in
-            switch response.result {
-            case .success(let result):
-                print(result)
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
-
-        review.getReviews(productId: idProduct) { response in
-            switch response.result {
-            case .success(let result):
-                print(result)
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
-
-        review.addReview(review: reviewResult) { response in
-            switch response.result {
-            case .success(let result):
-                print(result)
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
-
-        review.removeReview(review: reviewResult) { response in
-            switch response.result {
-            case .success(let result):
-                print(result)
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
-        
-        basket.addToBasket(basket: basketRequest) { response in
-            switch response.result {
-            case .success(let result):
-                print(result)
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
-        
-        basket.deleteFromBasket(basket: basketRequest) { response in
-            switch response.result {
-            case .success(let result):
-                print(result)
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
-
-        basket.getBusket(user: user) { response in
-            switch response.result {
-            case .success(let result):
-                print(result)
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
-
-        basket.payBasket(user: user) { response in
-            switch response.result {
-            case .success(let result):
-                print(result)
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
+//        auth.logout(userID: user.id ?? 0) { response in
+//            switch response.result {
+//            case .success(let result):
+//                print(result)
+//            case .failure(let error):
+//                print(error.localizedDescription)
+//            }
+//        }
+//
+//        regist.register(user: user) {response in
+//            switch response.result {
+//            case .success(let result):
+//                print(result)
+//            case .failure(let error):
+//                print(error.localizedDescription)
+//            }
+//        }
+//
+//        changeUserData.changeUserData(user: user) {response in
+//            switch response.result {
+//            case .success(let result):
+//                print(result)
+//            case .failure(let error):
+//                print(error.localizedDescription)
+//            }
+//        }
+//
+//        Catalog.getCatalog(pageNumber: pageNumber,
+//                           categoryId: categoryId) { response in
+//            switch response.result {
+//            case .success(let result):
+//                print(result)
+//            case .failure(let error):
+//                print(error.localizedDescription)
+//            }
+//        }
+//
+//        GoodByld.getGoodByld(productId: idProduct) { response in
+//            switch response.result {
+//            case .success(let result):
+//                print(result)
+//            case .failure(let error):
+//                print(error.localizedDescription)
+//            }
+//        }
+//
+//        review.getReviews(productId: idProduct) { response in
+//            switch response.result {
+//            case .success(let result):
+//                print(result)
+//            case .failure(let error):
+//                print(error.localizedDescription)
+//            }
+//        }
+//
+//        review.addReview(review: reviewResult) { response in
+//            switch response.result {
+//            case .success(let result):
+//                print(result)
+//            case .failure(let error):
+//                print(error.localizedDescription)
+//            }
+//        }
+//
+//        review.removeReview(review: reviewResult) { response in
+//            switch response.result {
+//            case .success(let result):
+//                print(result)
+//            case .failure(let error):
+//                print(error.localizedDescription)
+//            }
+//        }
+//        
+//        basket.addToBasket(basket: basketRequest) { response in
+//            switch response.result {
+//            case .success(let result):
+//                print(result)
+//            case .failure(let error):
+//                print(error.localizedDescription)
+//            }
+//        }
+//        
+//        basket.deleteFromBasket(basket: basketRequest) { response in
+//            switch response.result {
+//            case .success(let result):
+//                print(result)
+//            case .failure(let error):
+//                print(error.localizedDescription)
+//            }
+//        }
+//
+//        basket.getBusket(user: user) { response in
+//            switch response.result {
+//            case .success(let result):
+//                print(result)
+//            case .failure(let error):
+//                print(error.localizedDescription)
+//            }
+//        }
+//
+//        basket.payBasket(user: user) { response in
+//            switch response.result {
+//            case .success(let result):
+//                print(result)
+//            case .failure(let error):
+//                print(error.localizedDescription)
+//            }
+//        }
 
         return true
     }
