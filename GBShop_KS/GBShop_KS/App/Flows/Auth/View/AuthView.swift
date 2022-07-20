@@ -9,10 +9,9 @@ import UIKit
 
 protocol AuthViewProtocol: AnyObject {
     func tapLoginButton(userName: String, password: String)
-
+    func tapRegistButton()
+    
 }
-
-
 
 class AuthView: UIView {
     
@@ -49,9 +48,8 @@ class AuthView: UIView {
     private(set) lazy var loginButton: UIButton = {
         let button = UIButton()
         button.backgroundColor = .blue
-        //        button.tintColor = .white
         button.setTitle("Войти", for: .normal)
-        //        button.clipsToBounds = true
+        button.clipsToBounds = true
         button.layer.cornerRadius = 16.0
         button.addTarget(self, action: #selector(loginButtonPressed), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -62,7 +60,7 @@ class AuthView: UIView {
     private(set) lazy var registButton: UIButton = {
         let button = UIButton()
         button.backgroundColor = .blue
-        //        button.tintColor = .white
+        button.tintColor = .white
         button.layer.cornerRadius = 16.0
         button.setTitle("Регистрация", for: .normal)
         button.addTarget(self, action: #selector(registButtonPressed), for: .touchUpInside)
@@ -171,12 +169,10 @@ class AuthView: UIView {
         let password = passwordTexField.text ?? ""
         delegate?.tapLoginButton(userName: userName, password: password)
         
-        print("Нажата кнока войти")
-        
     }
     
     @objc private func registButtonPressed() {
-        print("Нажата кнопка зарегистрироваться")
+        delegate?.tapRegistButton()
     }
     
     @objc func keyboardWillShow(notification: NSNotification) {

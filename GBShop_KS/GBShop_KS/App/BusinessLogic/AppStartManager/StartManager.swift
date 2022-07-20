@@ -17,9 +17,23 @@ final class StartManager {
     
     func start() {
         let rootVC = AuthViewController()
-        window?.rootViewController = rootVC
+        rootVC.navigationItem.title = "GBShops"
+        
+        let navVC = self.configuredNavigationController
+        navVC.viewControllers = [rootVC]
+        
+        window?.rootViewController = navVC
         window?.makeKeyAndVisible()
     }
+    
+    private lazy var configuredNavigationController: UINavigationController = {
+        let navVC = UINavigationController()
+        navVC.navigationBar.barTintColor = .blue
+        navVC.navigationBar.isTranslucent = true
+        navVC.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        navVC.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        return navVC
+    }()
     
 }
 

@@ -21,6 +21,9 @@
 		0003750C2888211E0080758D /* StartManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0003750B2888211E0080758D /* StartManager.swift */; };
 		0003750F288821F70080758D /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0003750E288821F70080758D /* AuthViewController.swift */; };
 		00037513288827D60080758D /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00037512288827D60080758D /* AuthView.swift */; };
+		000375182888817B0080758D /* WelcomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000375172888817B0080758D /* WelcomeScreenViewController.swift */; };
+		0003751F288886550080758D /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0003751E288886550080758D /* RegistrationViewController.swift */; };
+		00037521288886830080758D /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00037520288886830080758D /* RegistrationView.swift */; };
 		0025964428525F9500AC90C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0025964328525F9500AC90C7 /* AppDelegate.swift */; };
 		0025964628525F9500AC90C7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0025964528525F9500AC90C7 /* SceneDelegate.swift */; };
 		0025964D28525F9700AC90C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0025964C28525F9700AC90C7 /* Assets.xcassets */; };
@@ -84,6 +87,9 @@
 		0003750B2888211E0080758D /* StartManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartManager.swift; sourceTree = "<group>"; };
 		0003750E288821F70080758D /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		00037512288827D60080758D /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
+		000375172888817B0080758D /* WelcomeScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreenViewController.swift; sourceTree = "<group>"; };
+		0003751E288886550080758D /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
+		00037520288886830080758D /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		0025964028525F9400AC90C7 /* GBShop_KS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GBShop_KS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0025964328525F9500AC90C7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0025964528525F9500AC90C7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -191,7 +197,7 @@
 			isa = PBXGroup;
 			children = (
 				00037510288827770080758D /* Controller */,
-				0003750E288821F70080758D /* AuthViewController.swift */,
+				00037511288827AD0080758D /* View */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -199,6 +205,7 @@
 		00037510288827770080758D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				0003750E288821F70080758D /* AuthViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -207,6 +214,55 @@
 			isa = PBXGroup;
 			children = (
 				00037512288827D60080758D /* AuthView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		00037514288881350080758D /* WelcomeScreen */ = {
+			isa = PBXGroup;
+			children = (
+				00037515288881520080758D /* Controller */,
+				000375162888815D0080758D /* View */,
+			);
+			path = WelcomeScreen;
+			sourceTree = "<group>";
+		};
+		00037515288881520080758D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				000375172888817B0080758D /* WelcomeScreenViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		000375162888815D0080758D /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		00037519288884650080758D /* Registration */ = {
+			isa = PBXGroup;
+			children = (
+				0003751A288884730080758D /* Controller */,
+				0003751B288884810080758D /* View */,
+			);
+			path = Registration;
+			sourceTree = "<group>";
+		};
+		0003751A288884730080758D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				0003751E288886550080758D /* RegistrationViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		0003751B288884810080758D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				00037520288886830080758D /* RegistrationView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -306,7 +362,8 @@
 			isa = PBXGroup;
 			children = (
 				0003750D288821CE0080758D /* Auth */,
-				00037511288827AD0080758D /* View */,
+				00037519288884650080758D /* Registration */,
+				00037514288881350080758D /* WelcomeScreen */,
 			);
 			path = Flows;
 			sourceTree = "<group>";
@@ -604,6 +661,7 @@
 				0032D230286117A4001CFA8A /* ResponseCodable.swift in Sources */,
 				0032D23B2861D207001CFA8A /* AuthRequestFactory.swift in Sources */,
 				004CA93C286DD083005F2C7F /* GoodByldResult.swift in Sources */,
+				0003751F288886550080758D /* RegistrationViewController.swift in Sources */,
 				0032D234286121BB001CFA8A /* RequestRouter.swift in Sources */,
 				0032D253286223AD001CFA8A /* СhangeUserData.swift in Sources */,
 				004CA93F286DD365005F2C7F /* CatalogRequestFactory.swift in Sources */,
@@ -619,9 +677,11 @@
 				0032D24A28621285001CFA8A /* RegistrationRequestFactory.swift in Sources */,
 				000374F92877481B0080758D /* ReviewRequestFactory.swift in Sources */,
 				00037513288827D60080758D /* AuthView.swift in Sources */,
+				00037521288886830080758D /* RegistrationView.swift in Sources */,
 				004CA936286DCA29005F2C7F /* CatalogResult.swift in Sources */,
 				0032D2382861D021001CFA8A /* User.swift in Sources */,
 				000374F728773C030080758D /* ReviewResult.swift in Sources */,
+				000375182888817B0080758D /* WelcomeScreenViewController.swift in Sources */,
 				0025964628525F9500AC90C7 /* SceneDelegate.swift in Sources */,
 				0032D23228611E2F001CFA8A /* AbstractRequestFactory.swift in Sources */,
 				00037505287DC31C0080758D /* BasketRequest.swift in Sources */,
