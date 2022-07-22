@@ -7,6 +7,11 @@
 
 import UIKit
 
+protocol RegistViewProtocol: AnyObject {
+    func tapRegistButton(user: User)
+    
+}
+
 class RegistrationView: UIView {
     
     // MARK: - Subviews
@@ -115,11 +120,8 @@ class RegistrationView: UIView {
         return button
     }()
     
-    
-    
-    
-    
-    
+    // MARK: - Properties
+    weak var delegate: RegistViewProtocol?
     
     // MARK: - Init
     
@@ -248,14 +250,26 @@ class RegistrationView: UIView {
     // MARK: - Actions
     
     @objc private func registButtonPressed() {
-        //        let userName = loginTexField.text ?? ""
-        //        let password = passwordTexField.text ?? ""
-        //        delegate?.tapLoginButton(userName: userName, password: password)
+        let user = User(login: loginTexField.text ?? "",
+                        password: passwordTexField.text ?? "",
+                        email: emailTexField.text ?? "",
+                        bio: bioTexField.text ?? "",
+                        name: nameTexField.text ?? "",
+                        lastname: lastnameTexField.text ?? "")
+       
+        delegate?.tapRegistButton(user: user)
         
     }
     
     @objc private func cleanAllButtonPressed() {
-        //        delegate?.tapRegistButton()
+        nameTexField.text = ""
+        lastnameTexField.text = ""
+        emailTexField.text = ""
+        loginTexField.text = ""
+        passwordTexField.text = ""
+        bioTexField.text = ""
+        
+        setupControls()
     }
     
     @objc func keyboardWillShow(notification: NSNotification) {

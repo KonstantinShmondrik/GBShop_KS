@@ -8,13 +8,12 @@
 import UIKit
 
 class AuthViewController: UIViewController {
-
+    
     private var authView: AuthView {
         return self.view as! AuthView
     }
     
     let requestFactory = RequestFactory()
-    
     
     // MARK: - Lifecycle
     
@@ -27,7 +26,7 @@ class AuthViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        
         
         
     }
@@ -35,8 +34,12 @@ class AuthViewController: UIViewController {
     // MARK: - private func
     
     private func showError(_ errorMessage: String) {
-        let alert = UIAlertController(title: "Ошибка авторизации", message: errorMessage, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Ок", style: .default, handler: nil))
+        let alert = UIAlertController(title: "Ошибка авторизации",
+                                      message: errorMessage,
+                                      preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ок",
+                                      style: .default,
+                                      handler: nil))
         present(alert, animated: true, completion: nil)
     }
     
@@ -48,12 +51,8 @@ class AuthViewController: UIViewController {
 
 // MARK: - AuthViewProtocol
 extension AuthViewController: AuthViewProtocol {
-   
+    
     func tapLoginButton(userName: String, password: String) {
-        
-        
-        print("tapLoginButton \(userName) ==== \(password)")
-        
         let auth = requestFactory.makeAuthRequestFactory()
         auth.login(userName: userName, password: password) { response in
             DispatchQueue.main.async {
@@ -72,6 +71,4 @@ extension AuthViewController: AuthViewProtocol {
     func tapRegistButton() {
         navigationController?.pushViewController(RegistrationViewController(), animated: true)
     }
-    
-    
 }

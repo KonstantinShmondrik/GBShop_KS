@@ -11,7 +11,8 @@ class WelcomeScreenViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        navigationController?.isNavigationBarHidden = true
+//        navigationController?.accessibilityElementsHidden = true
        
     }
     

@@ -20,16 +20,62 @@ class RegistrationViewController: UIViewController {
     override func loadView() {
         super.loadView()
         let view = RegistrationView()
-//        view.delegate = self
+        view.delegate = self
         self.view = view
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-       
+        
+        
     }
     
-
-   
+    // MARK: - private func
+    
+    private func showError(_ errorMessage: String) {
+        let alert = UIAlertController(title: "Ошибка авторизации",
+                                      message: errorMessage,
+                                      preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ок",
+                                      style: .default,
+                                      handler: nil))
+        present(alert, animated: true, completion: nil)
+    }
+    
+    private func proceedToWelcomeScreen() {
+        let alert = UIAlertController(title: "Поздравляем! Вы зарегестрированны." ,
+                                      message: "Пройдите обратно и войдите в приложение при помощи вашего логина и пароля",
+                                      preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ок",
+                                      style: .default,
+                                      handler: { _ in
+            self.navigationController?.popViewController(animated: true)
+        }))
+        present(alert, animated: true, completion: nil)
+    }
+    
 }
+
+extension RegistrationViewController: RegistViewProtocol {
+    func tapRegistButton(user: User) {
+        let regist = requestFactory.makeRegistRequestFactory()
+        
+        regist.register(user: user) {response in
+            DispatchQueue.main.async {
+                switch response.result {
+                case .success(let result):
+                    result.result == 1 ? self.proceedToWelcomeScreen() : self.showError(result.errorMessage ?? "Неизвестная ошибка.")
+                    print(result)
+                case .failure(let error):
+                    self.showError(error.localizedDescription)
+                    print(error.localizedDescription)
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
