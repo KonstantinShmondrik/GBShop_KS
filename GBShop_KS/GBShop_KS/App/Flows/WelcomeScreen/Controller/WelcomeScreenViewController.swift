@@ -13,7 +13,7 @@ class WelcomeScreenViewController: UIViewController {
         super.viewDidLoad()
         navigationController?.isNavigationBarHidden = true
 //        navigationController?.accessibilityElementsHidden = true
-       
+        view.backgroundColor = .white
     }
     
 

@@ -24,6 +24,8 @@
 		000375182888817B0080758D /* WelcomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000375172888817B0080758D /* WelcomeScreenViewController.swift */; };
 		0003751F288886550080758D /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0003751E288886550080758D /* RegistrationViewController.swift */; };
 		00037521288886830080758D /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00037520288886830080758D /* RegistrationView.swift */; };
+		00037528288C399B0080758D /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00037527288C399B0080758D /* TabBarViewController.swift */; };
+		0003752D288C3C0A0080758D /* EditDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0003752C288C3C0A0080758D /* EditDataViewController.swift */; };
 		0025964428525F9500AC90C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0025964328525F9500AC90C7 /* AppDelegate.swift */; };
 		0025964628525F9500AC90C7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0025964528525F9500AC90C7 /* SceneDelegate.swift */; };
 		0025964D28525F9700AC90C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0025964C28525F9700AC90C7 /* Assets.xcassets */; };
@@ -90,6 +92,8 @@
 		000375172888817B0080758D /* WelcomeScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreenViewController.swift; sourceTree = "<group>"; };
 		0003751E288886550080758D /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		00037520288886830080758D /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
+		00037527288C399B0080758D /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		0003752C288C3C0A0080758D /* EditDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDataViewController.swift; sourceTree = "<group>"; };
 		0025964028525F9400AC90C7 /* GBShop_KS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GBShop_KS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0025964328525F9500AC90C7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0025964528525F9500AC90C7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -267,6 +271,38 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		00037526288C397C0080758D /* TabBarVC */ = {
+			isa = PBXGroup;
+			children = (
+				00037527288C399B0080758D /* TabBarViewController.swift */,
+			);
+			path = TabBarVC;
+			sourceTree = "<group>";
+		};
+		00037529288C3BAF0080758D /* EditUserData */ = {
+			isa = PBXGroup;
+			children = (
+				0003752B288C3BE20080758D /* Controller */,
+				0003752A288C3BD70080758D /* View */,
+			);
+			path = EditUserData;
+			sourceTree = "<group>";
+		};
+		0003752A288C3BD70080758D /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0003752B288C3BE20080758D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				0003752C288C3C0A0080758D /* EditDataViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		0025963728525F9400AC90C7 = {
 			isa = PBXGroup;
 			children = (
@@ -361,8 +397,10 @@
 		0025967728525FBC00AC90C7 /* Flows */ = {
 			isa = PBXGroup;
 			children = (
+				00037526288C397C0080758D /* TabBarVC */,
 				0003750D288821CE0080758D /* Auth */,
 				00037519288884650080758D /* Registration */,
+				00037529288C3BAF0080758D /* EditUserData */,
 				00037514288881350080758D /* WelcomeScreen */,
 			);
 			path = Flows;
@@ -656,7 +694,9 @@
 				0032D23F2861D976001CFA8A /* RequestFactory.swift in Sources */,
 				0032D22C286111AD001CFA8A /* AbstractErrorParser.swift in Sources */,
 				00037500287DBCB80080758D /* BasketRequestFactory.swift in Sources */,
+				0003752D288C3C0A0080758D /* EditDataViewController.swift in Sources */,
 				004CA948286DEA56005F2C7F /* GoodByld.swift in Sources */,
+				00037528288C399B0080758D /* TabBarViewController.swift in Sources */,
 				004CA946286DE7CB005F2C7F /* GoodByldRequestFactory.swift in Sources */,
 				0032D230286117A4001CFA8A /* ResponseCodable.swift in Sources */,
 				0032D23B2861D207001CFA8A /* AuthRequestFactory.swift in Sources */,

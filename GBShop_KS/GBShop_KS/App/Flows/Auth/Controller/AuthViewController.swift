@@ -44,7 +44,7 @@ class AuthViewController: UIViewController {
     }
     
     private func proceedToWelcomeScreen() {
-        navigationController?.pushViewController(WelcomeScreenViewController(), animated: true)
+        navigationController?.pushViewController(TabBarViewController(), animated: true)
     }
     
 }
