@@ -30,6 +30,7 @@ class AuthView: UIView {
         textField.borderStyle = .bezel
         textField.attributedPlaceholder = NSAttributedString(string: "Логин", attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
         textField.textColor = .black
+        textField.autocapitalizationType = .none
         textField.translatesAutoresizingMaskIntoConstraints = false
         
         return textField
@@ -40,6 +41,7 @@ class AuthView: UIView {
         textField.textColor = .black
         textField.attributedPlaceholder = NSAttributedString(string: "Пароль", attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
         textField.borderStyle = .bezel
+        textField.autocapitalizationType = .none
         textField.translatesAutoresizingMaskIntoConstraints = false
         
         return textField
@@ -77,7 +79,7 @@ class AuthView: UIView {
         label.font = UIFont.systemFont(ofSize: 14.0)
         label.textAlignment = .left
         label.translatesAutoresizingMaskIntoConstraints = false
-    
+        
         return label
     }()
     
@@ -136,15 +138,12 @@ class AuthView: UIView {
             self.registButton.widthAnchor.constraint(equalToConstant: 250.0),
             self.registButton.centerXAnchor.constraint(equalTo: self.scrollView.centerXAnchor),
             //            self.registButton.bottomAnchor.constraint(greaterThanOrEqualTo: self.scrollView.bottomAnchor, constant: 0.0)
-           
+            
             self.helpLabel.topAnchor.constraint(equalTo: self.registButton.bottomAnchor, constant: 50.0),
             self.helpLabel.heightAnchor.constraint(equalToConstant: 250.0),
             self.helpLabel.widthAnchor.constraint(equalToConstant: 350.0),
             self.helpLabel.centerXAnchor.constraint(equalTo: self.scrollView.centerXAnchor),
-            
-           
         ])
-        
     }
     
     // MARK: - private func
@@ -189,6 +188,8 @@ class AuthView: UIView {
         let userName = loginTexField.text ?? ""
         let password = passwordTexField.text ?? ""
         delegate?.tapLoginButton(userName: userName, password: password)
+        loginTexField.text = ""
+        passwordTexField.text = ""
         
     }
     

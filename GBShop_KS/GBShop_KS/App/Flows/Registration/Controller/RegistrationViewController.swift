@@ -33,7 +33,7 @@ class RegistrationViewController: UIViewController {
     // MARK: - private func
     
     private func showError(_ errorMessage: String) {
-        let alert = UIAlertController(title: "Ошибка авторизации",
+        let alert = UIAlertController(title: "Ошибка",
                                       message: errorMessage,
                                       preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Ок",

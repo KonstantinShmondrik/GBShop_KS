@@ -16,8 +16,8 @@ final class TabBarViewController: UITabBarController, UITabBarControllerDelegate
         let welcomeScreenVC = WelcomeScreenViewController()
         
         let tabBarItemWelcomeScreen = UITabBarItem(title: "Главная",
-                                         image: UIImage(systemName: "app"),
-                                         selectedImage: UIImage(systemName: "app.fill"))
+                                                   image: UIImage(systemName: "app"),
+                                                   selectedImage: UIImage(systemName: "app.fill"))
         
         welcomeScreenVC.tabBarItem = tabBarItemWelcomeScreen
         
@@ -25,12 +25,10 @@ final class TabBarViewController: UITabBarController, UITabBarControllerDelegate
         let EditDataVC = EditDataViewController()
         
         let tabBarItemEditData = UITabBarItem(title: "Пользователь",
-                                          image: UIImage(systemName: "person.crop.circle"),
-                                          selectedImage: UIImage(systemName: "person.crop.circle.fill"))
+                                              image: UIImage(systemName: "person.crop.circle"),
+                                              selectedImage: UIImage(systemName: "person.crop.circle.fill"))
         
         EditDataVC.tabBarItem = tabBarItemEditData
-        
-        
         self.viewControllers = [welcomeScreenVC, EditDataVC]
         
     }

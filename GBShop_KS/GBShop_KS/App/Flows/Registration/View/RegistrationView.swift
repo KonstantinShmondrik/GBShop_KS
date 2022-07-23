@@ -219,7 +219,6 @@ class RegistrationView: UIView {
             self.cleanAllButton.heightAnchor.constraint(equalToConstant: 50.0),
             self.cleanAllButton.widthAnchor.constraint(equalToConstant: 250.0),
             self.cleanAllButton.centerXAnchor.constraint(equalTo: self.scrollView.centerXAnchor),
-            
         ])
         
     }
