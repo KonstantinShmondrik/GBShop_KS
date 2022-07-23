@@ -69,6 +69,18 @@ class AuthView: UIView {
         return button
     }()
     
+    private(set) lazy var helpLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Для входа используйте логин: Somebody  пароль: mypassword"
+        label.numberOfLines = 0
+        label.textColor = .lightGray
+        label.font = UIFont.systemFont(ofSize: 14.0)
+        label.textAlignment = .left
+        label.translatesAutoresizingMaskIntoConstraints = false
+    
+        return label
+    }()
+    
     // MARK: - Properties
     weak var delegate: AuthViewProtocol?
     
@@ -95,14 +107,16 @@ class AuthView: UIView {
         self.scrollView.addSubview(self.passwordTexField)
         self.scrollView.addSubview(self.loginButton)
         self.scrollView.addSubview(self.registButton)
+        self.scrollView.addSubview(self.helpLabel)
         
         NSLayoutConstraint.activate([
+            
             self.scrollView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 0.0),
             self.scrollView.leftAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leftAnchor,constant: 0.0),
             self.scrollView.rightAnchor.constraint(equalTo: self.safeAreaLayoutGuide.rightAnchor,constant: 0.0),
             self.scrollView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor,constant: 0.0),
             
-            self.loginTexField.topAnchor.constraint(lessThanOrEqualTo: self.scrollView.topAnchor, constant: 150),
+            self.loginTexField.topAnchor.constraint(lessThanOrEqualTo: self.scrollView.topAnchor, constant: 50),
             self.loginTexField.heightAnchor.constraint(equalToConstant: 50.0),
             self.loginTexField.widthAnchor.constraint(equalToConstant: 350.0),
             self.loginTexField.centerXAnchor.constraint(equalTo: self.scrollView.centerXAnchor),
@@ -122,6 +136,13 @@ class AuthView: UIView {
             self.registButton.widthAnchor.constraint(equalToConstant: 250.0),
             self.registButton.centerXAnchor.constraint(equalTo: self.scrollView.centerXAnchor),
             //            self.registButton.bottomAnchor.constraint(greaterThanOrEqualTo: self.scrollView.bottomAnchor, constant: 0.0)
+           
+            self.helpLabel.topAnchor.constraint(equalTo: self.registButton.bottomAnchor, constant: 50.0),
+            self.helpLabel.heightAnchor.constraint(equalToConstant: 250.0),
+            self.helpLabel.widthAnchor.constraint(equalToConstant: 350.0),
+            self.helpLabel.centerXAnchor.constraint(equalTo: self.scrollView.centerXAnchor),
+            
+           
         ])
         
     }

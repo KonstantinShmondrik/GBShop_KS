@@ -86,6 +86,17 @@ class RegistrationView: UIView {
         return textField
     }()
     
+    private(set) lazy var genderSegmentedControl: UISegmentedControl = {
+        let items = ["👨🏻","👩🏻"]
+        let segmentControl = UISegmentedControl(items: items)
+        segmentControl.selectedSegmentIndex = 0
+        segmentControl.backgroundColor = .gray
+        segmentControl.selectedSegmentTintColor = .blue
+        segmentControl.translatesAutoresizingMaskIntoConstraints = false
+        
+        return segmentControl
+    }()
+    
     private(set) lazy var bioTexField: UITextField = {
         let textField = UITextField()
         textField.borderStyle = .bezel
@@ -148,6 +159,7 @@ class RegistrationView: UIView {
         self.scrollView.addSubview(self.loginTexField)
         self.scrollView.addSubview(self.passwordTexField)
         self.scrollView.addSubview(self.emailTexField)
+        self.scrollView.addSubview(self.genderSegmentedControl)
         self.scrollView.addSubview(self.bioTexField)
         self.scrollView.addSubview(self.registButton)
         self.scrollView.addSubview(self.cleanAllButton)
@@ -162,7 +174,7 @@ class RegistrationView: UIView {
             self.hederLabel.heightAnchor.constraint(equalToConstant: 30.0),
             self.hederLabel.widthAnchor.constraint(equalToConstant: 400.0),
             self.hederLabel.centerXAnchor.constraint(equalTo: self.scrollView.centerXAnchor),
-            //
+            
             self.nameTexField.topAnchor.constraint(equalTo: self.hederLabel.bottomAnchor, constant: 10.0),
             self.nameTexField.heightAnchor.constraint(equalToConstant: 50.0),
             self.nameTexField.widthAnchor.constraint(equalToConstant: 350.0),
@@ -188,7 +200,12 @@ class RegistrationView: UIView {
             self.passwordTexField.widthAnchor.constraint(equalToConstant: 350.0),
             self.passwordTexField.centerXAnchor.constraint(equalTo: self.scrollView.centerXAnchor),
             
-            self.bioTexField.topAnchor.constraint(equalTo: self.passwordTexField.bottomAnchor, constant: 10.0),
+            self.genderSegmentedControl.topAnchor.constraint(equalTo: self.passwordTexField.bottomAnchor, constant: 10.0),
+            self.genderSegmentedControl.heightAnchor.constraint(equalToConstant: 50.0),
+            self.genderSegmentedControl.widthAnchor.constraint(equalToConstant: 350.0),
+            self.genderSegmentedControl.centerXAnchor.constraint(equalTo: self.scrollView.centerXAnchor),
+            
+            self.bioTexField.topAnchor.constraint(equalTo: self.genderSegmentedControl.bottomAnchor, constant: 10.0),
             self.bioTexField.heightAnchor.constraint(equalToConstant: 150.0),
             self.bioTexField.widthAnchor.constraint(equalToConstant: 350.0),
             self.bioTexField.centerXAnchor.constraint(equalTo: self.scrollView.centerXAnchor),
@@ -213,7 +230,7 @@ class RegistrationView: UIView {
         registButton.backgroundColor = UIColor.opaqueSeparator
         registButton.isEnabled = false
         
-        [nameTexField, lastnameTexField, emailTexField, loginTexField, passwordTexField].forEach {
+        [nameTexField, lastnameTexField, emailTexField, loginTexField, passwordTexField, bioTexField].forEach {
             $0.addTarget(self, action: #selector(editingChanged), for: .editingChanged)
         }
     }
@@ -253,10 +270,11 @@ class RegistrationView: UIView {
         let user = User(login: loginTexField.text ?? "",
                         password: passwordTexField.text ?? "",
                         email: emailTexField.text ?? "",
+                        gender: genderSegmentedControl.selectedSegmentIndex == 0 ? "m" : "f",
                         bio: bioTexField.text ?? "",
                         name: nameTexField.text ?? "",
                         lastname: lastnameTexField.text ?? "")
-       
+        
         delegate?.tapRegistButton(user: user)
         
     }
@@ -268,6 +286,7 @@ class RegistrationView: UIView {
         loginTexField.text = ""
         passwordTexField.text = ""
         bioTexField.text = ""
+        genderSegmentedControl.selectedSegmentIndex = 0
         
         setupControls()
     }
