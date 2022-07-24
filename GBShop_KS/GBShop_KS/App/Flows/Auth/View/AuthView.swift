@@ -20,7 +20,7 @@ class AuthView: UIView {
         let scrollView = UIScrollView(frame: .zero)
         scrollView.contentSize = CGSize(width: UIScreen.main.bounds.width, height: 2000)
         scrollView.translatesAutoresizingMaskIntoConstraints = false
-        scrollView.isPagingEnabled = true
+        scrollView.isPagingEnabled = false
         
         return scrollView
     }()
