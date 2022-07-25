@@ -22,6 +22,7 @@ class AuthView: UIView {
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.isPagingEnabled = false
         
+        
         return scrollView
     }()
     
