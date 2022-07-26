@@ -37,6 +37,12 @@ class AuthViewController: UIViewController {
         
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setToolbarHidden(true, animated: false)
+        navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
     // MARK: - private func
     
     private func showError(_ errorMessage: String) {

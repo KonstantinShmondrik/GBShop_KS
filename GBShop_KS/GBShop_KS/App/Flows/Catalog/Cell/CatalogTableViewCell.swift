@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class CatalogTableViewCell: UITableViewCell {
     
@@ -64,34 +65,30 @@ class CatalogTableViewCell: UITableViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    
-    
+
     // MARK: - UI
     
     private func configureUI() {
         self.backgroundColor = .white
-    
+        
         self.contentView.addSubview(self.productNameLabel)
         self.contentView.addSubview(self.picImage)
         self.contentView.addSubview(self.shortDescriptionLabel)
         self.contentView.addSubview(self.priceLabel)
         
         NSLayoutConstraint.activate([
-           
-
             self.productNameLabel.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 10),
             self.productNameLabel.leftAnchor.constraint(equalTo: self.contentView.leftAnchor, constant: 10),
             self.productNameLabel.widthAnchor.constraint(equalToConstant: 250.0),
             self.productNameLabel.heightAnchor.constraint(equalToConstant: 100.0),
-           
+            
             self.picImage.centerYAnchor.constraint(equalTo: self.productNameLabel.centerYAnchor),
             
             self.picImage.leftAnchor.constraint(equalTo: self.productNameLabel.rightAnchor, constant: 10.0),
             self.picImage.widthAnchor.constraint(equalToConstant: 80.0),
             self.picImage.heightAnchor.constraint(equalToConstant: 80.0),
             self.picImage.centerYAnchor.constraint(equalTo: self.productNameLabel.centerYAnchor),
-           
+            
             self.shortDescriptionLabel.topAnchor.constraint(equalTo: self.productNameLabel.bottomAnchor, constant: 10.0),
             self.shortDescriptionLabel.leftAnchor.constraint(equalTo: self.productNameLabel.leftAnchor),
             self.shortDescriptionLabel.rightAnchor.constraint(equalTo: self.picImage.rightAnchor),
@@ -101,7 +98,6 @@ class CatalogTableViewCell: UITableViewCell {
             self.priceLabel.rightAnchor.constraint(equalTo: self.shortDescriptionLabel.rightAnchor),
             self.priceLabel.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -10.0)
         ])
-        
     }
     
     // MARK: - configure
@@ -110,30 +106,15 @@ class CatalogTableViewCell: UITableViewCell {
         productNameLabel.text = item.productName
         shortDescriptionLabel.text = item.shortDescription
         if let itemPrice = item.price {
-        priceLabel.text = "\(itemPrice.formattedString) ₽"
+            priceLabel.text = "\(itemPrice.formattedString) ₽"
         } else {
             priceLabel.text = "Нет в наличии"
         }
-        
-        picImage.image = UIImage(named: "noPhoto")
-        
-        
-        
-        
-        
-        
-//        itemNameLabel.text = item.productName ?? "Х/З"
-//        itemDescriptionLabel.text = item.shortDescription ?? "Х/З"
-//        if let itemPrice = item.price {
-//            itemPriceLabel.text = "\(itemPrice.formattedString) ₽"
-//        } else {
-//            itemPriceLabel.text = "Х/З"
-//        }
-        
-        
-//        if let picUrl = item.picUrl, let itemUrl = URL(string: picUrl) {
-//            itemPicture.af.setImage(withURL: itemUrl)
-//        }
+        if let picUrl = item.picUrl, let itemUrl = URL(string: picUrl) {
+            picImage.sd_setImage(with: itemUrl)
+        } else {
+            picImage.image = UIImage(named: "noPhoto")
+        }
     }
     
 }
