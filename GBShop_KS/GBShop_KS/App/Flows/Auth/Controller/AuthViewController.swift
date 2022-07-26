@@ -13,21 +13,27 @@ class AuthViewController: UIViewController {
         return self.view as! AuthView
     }
     
+    
     let requestFactory = RequestFactory()
     
     // MARK: - Lifecycle
+    
+
     
     override func loadView() {
         super.loadView()
         let view = AuthView()
         view.delegate = self
         self.view = view
+        
+        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        authView.loginTexField.text = "Somebody" // заглушки для дебага
+        authView.passwordTexField.text = "mypassword"
         
     }
     

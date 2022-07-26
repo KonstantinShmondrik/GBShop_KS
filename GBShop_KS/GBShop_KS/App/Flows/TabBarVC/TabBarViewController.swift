@@ -13,13 +13,13 @@ final class TabBarViewController: UITabBarController, UITabBarControllerDelegate
         super.viewDidLoad()
         self.delegate = self
         
-        let welcomeScreenVC = WelcomeScreenViewController()
+        let catalogVC = CatalogTableViewController()
         
-        let tabBarItemWelcomeScreen = UITabBarItem(title: "Главная",
+        let tabBarItemWelcomeScreen = UITabBarItem(title: "Каталог",
                                                    image: UIImage(systemName: "app"),
                                                    selectedImage: UIImage(systemName: "app.fill"))
         
-        welcomeScreenVC.tabBarItem = tabBarItemWelcomeScreen
+        catalogVC.tabBarItem = tabBarItemWelcomeScreen
         
         
         let EditDataVC = EditDataViewController()
@@ -29,7 +29,7 @@ final class TabBarViewController: UITabBarController, UITabBarControllerDelegate
                                               selectedImage: UIImage(systemName: "person.crop.circle.fill"))
         
         EditDataVC.tabBarItem = tabBarItemEditData
-        self.viewControllers = [welcomeScreenVC, EditDataVC]
+        self.viewControllers = [catalogVC, EditDataVC]
         
     }
 }
