@@ -31,6 +31,8 @@
 		000375392890587E0080758D /* CatalogTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000375382890587E0080758D /* CatalogTableViewCell.swift */; };
 		0003753C289066920080758D /* Extensions+Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0003753B289066920080758D /* Extensions+Int.swift */; };
 		0003753F2890AC630080758D /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 0003753E2890AC630080758D /* SDWebImage */; };
+		000375472896E4500080758D /* ProductCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000375462896E4500080758D /* ProductCardView.swift */; };
+		000375492896F11A0080758D /* ProductCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000375482896F11A0080758D /* ProductCardViewController.swift */; };
 		0025964428525F9500AC90C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0025964328525F9500AC90C7 /* AppDelegate.swift */; };
 		0025964628525F9500AC90C7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0025964528525F9500AC90C7 /* SceneDelegate.swift */; };
 		0025964D28525F9700AC90C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0025964C28525F9700AC90C7 /* Assets.xcassets */; };
@@ -103,6 +105,8 @@
 		00037536289053F90080758D /* CircleImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImageView.swift; sourceTree = "<group>"; };
 		000375382890587E0080758D /* CatalogTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogTableViewCell.swift; sourceTree = "<group>"; };
 		0003753B289066920080758D /* Extensions+Int.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+Int.swift"; sourceTree = "<group>"; };
+		000375462896E4500080758D /* ProductCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCardView.swift; sourceTree = "<group>"; };
+		000375482896F11A0080758D /* ProductCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCardViewController.swift; sourceTree = "<group>"; };
 		0025964028525F9400AC90C7 /* GBShop_KS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GBShop_KS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0025964328525F9500AC90C7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0025964528525F9500AC90C7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -331,6 +335,31 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		000375432896DFA70080758D /* ProductCard */ = {
+			isa = PBXGroup;
+			children = (
+				000375452896DFD50080758D /* Controller */,
+				000375442896DFCE0080758D /* View */,
+			);
+			path = ProductCard;
+			sourceTree = "<group>";
+		};
+		000375442896DFCE0080758D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				000375462896E4500080758D /* ProductCardView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		000375452896DFD50080758D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				000375482896F11A0080758D /* ProductCardViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		0025963728525F9400AC90C7 = {
 			isa = PBXGroup;
 			children = (
@@ -432,6 +461,7 @@
 				00037519288884650080758D /* Registration */,
 				00037529288C3BAF0080758D /* EditUserData */,
 				00037514288881350080758D /* Catalog */,
+				000375432896DFA70080758D /* ProductCard */,
 			);
 			path = Flows;
 			sourceTree = "<group>";
@@ -729,7 +759,9 @@
 				0003752D288C3C0A0080758D /* EditDataViewController.swift in Sources */,
 				004CA948286DEA56005F2C7F /* GoodByld.swift in Sources */,
 				00037528288C399B0080758D /* TabBarViewController.swift in Sources */,
+				000375472896E4500080758D /* ProductCardView.swift in Sources */,
 				004CA946286DE7CB005F2C7F /* GoodByldRequestFactory.swift in Sources */,
+				000375492896F11A0080758D /* ProductCardViewController.swift in Sources */,
 				0032D230286117A4001CFA8A /* ResponseCodable.swift in Sources */,
 				0032D23B2861D207001CFA8A /* AuthRequestFactory.swift in Sources */,
 				004CA93C286DD083005F2C7F /* GoodByldResult.swift in Sources */,
