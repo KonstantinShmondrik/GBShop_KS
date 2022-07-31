@@ -68,4 +68,11 @@ class CatalogTableViewController: UITableViewController {
         }
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let idProduct = catalog.products[indexPath.row].idProduct ?? 0
+        
+        navigationController?.pushViewController(ProductCardViewController(productId: idProduct), animated: true)
+    }
+    
+    
 }

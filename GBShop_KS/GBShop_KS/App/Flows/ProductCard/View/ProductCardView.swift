@@ -8,7 +8,7 @@
 import UIKit
 
 protocol ProductCardViewProtocol: AnyObject {
-    func tapLogoutButton()
+    func tapInBasketButtonPressed()
 }
 
 class ProductCardView: UIView {
@@ -59,6 +59,8 @@ class ProductCardView: UIView {
     
     private(set) lazy var picImage: UIImageView = {
         let image = UIImageView()
+        image.sizeToFit()
+        image.clipsToBounds = true
         image.translatesAutoresizingMaskIntoConstraints = false
         
         return image
@@ -110,19 +112,19 @@ class ProductCardView: UIView {
             self.scrollView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor,constant: 0.0),
             
             self.productNameLabel.topAnchor.constraint(lessThanOrEqualTo: self.scrollView.topAnchor, constant: 10),
-//            self.productNameLabel.heightAnchor.constraint(equalToConstant: 50.0),
             self.productNameLabel.leftAnchor.constraint(equalTo: scrollView.leftAnchor, constant: 10),
-            self.productNameLabel.rightAnchor.constraint(equalTo: scrollView.rightAnchor, constant: -10),
+            self.productNameLabel.rightAnchor.constraint(equalTo: self.safeAreaLayoutGuide.rightAnchor, constant: -10),
             
             self.picImage.topAnchor.constraint(equalTo: self.productNameLabel.bottomAnchor, constant: 10.0),
             self.picImage.heightAnchor.constraint(equalToConstant: 300.0),
+            self.picImage.widthAnchor.constraint(equalToConstant: 300.0),
             self.picImage.centerXAnchor.constraint(equalTo: self.scrollView.centerXAnchor),
             
             self.descriptionLabel.topAnchor.constraint(equalTo: self.picImage.bottomAnchor, constant: 10),
             self.descriptionLabel.leftAnchor.constraint(equalTo: productNameLabel.leftAnchor),
             self.descriptionLabel.rightAnchor.constraint(equalTo: productNameLabel.rightAnchor),
             
-            self.priceLabel.topAnchor.constraint(equalTo: self.descriptionLabel.bottomAnchor, constant: 10),
+            self.priceLabel.topAnchor.constraint(equalTo: self.descriptionLabel.bottomAnchor, constant: 20),
             self.priceLabel.leftAnchor.constraint(equalTo: productNameLabel.leftAnchor),
             self.priceLabel.rightAnchor.constraint(equalTo: productNameLabel.rightAnchor),
 
@@ -136,7 +138,7 @@ class ProductCardView: UIView {
     // MARK: - configure
     
     func configure(_ item: GoodByldResult) {
-        productNameLabel.text = item.productName
+        productNameLabel.text = item.productName ?? ""
         descriptionLabel.text = item.description ?? ""
         if let itemPrice = item.price {
             priceLabel.text = "\(itemPrice.formattedString) ₽"
@@ -154,7 +156,7 @@ class ProductCardView: UIView {
     
     @objc private func inBasketButtonPressed() {
         
-        delegate?.tapLogoutButton()
+        delegate?.tapInBasketButtonPressed()
        
     }
     
