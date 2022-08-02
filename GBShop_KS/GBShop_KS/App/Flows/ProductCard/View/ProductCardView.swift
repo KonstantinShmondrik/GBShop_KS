@@ -9,10 +9,12 @@ import UIKit
 
 protocol ProductCardViewProtocol: AnyObject {
     func tapInBasketButtonPressed()
+    func tapGetReviewButton()
+    func tapAddReviewButton()
 }
 
 class ProductCardView: UIView {
-
+    
     // MARK: - Subviews
     private(set) lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView(frame: .zero)
@@ -65,14 +67,50 @@ class ProductCardView: UIView {
         
         return image
     }()
-
+    
     private(set) lazy var inBasketButton: UIButton = {
-        let button = UIButton()
+        let button = UIButton(type: .system)
         button.backgroundColor = .blue
         button.setTitle("В корзину", for: .normal)
         button.clipsToBounds = true
         button.layer.cornerRadius = 16.0
         button.addTarget(self, action: #selector(inBasketButtonPressed), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        
+        return button
+    }()
+    
+    private(set) lazy var reviewsLabel: UILabel = {
+        let label = UILabel()
+        label.numberOfLines = 1
+        label.textColor = .black
+        label.text = "Отзывы о товаре:"
+        label.font = UIFont.systemFont(ofSize: 20.0)
+        label.textAlignment = .left
+        label.translatesAutoresizingMaskIntoConstraints = false
+        
+        return label
+    }()
+    
+    private(set) lazy var getReviewButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.backgroundColor = .white
+        button.setTitle("Посмотреть отзывы", for: .normal)
+        button.clipsToBounds = true
+        button.layer.cornerRadius = 16.0
+        button.addTarget(self, action: #selector(getReviewButtonPressed), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        
+        return button
+    }()
+    
+    private(set) lazy var addReviewButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.backgroundColor = .white
+        button.setTitle("Оставить отзыв", for: .normal)
+        button.clipsToBounds = true
+        button.layer.cornerRadius = 16.0
+        button.addTarget(self, action: #selector(addReviewButtonPressed), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         
         return button
@@ -98,11 +136,17 @@ class ProductCardView: UIView {
     private func configureUI() {
         self.backgroundColor = .white
         self.addSubview(self.scrollView)
-        self.scrollView.addSubview(self.productNameLabel)
-        self.scrollView.addSubview(self.priceLabel)
-        self.scrollView.addSubview(self.picImage)
-        self.scrollView.addSubview(self.descriptionLabel)
-        self.scrollView.addSubview(self.inBasketButton)
+        [self.productNameLabel,
+         self.priceLabel,
+         self.picImage,
+         self.descriptionLabel,
+         self.inBasketButton,
+         self.reviewsLabel,
+         self.getReviewButton,
+         self.addReviewButton
+        ].forEach() {
+            self.scrollView.addSubview($0)
+        }
         
         NSLayoutConstraint.activate([
             
@@ -127,11 +171,25 @@ class ProductCardView: UIView {
             self.priceLabel.topAnchor.constraint(equalTo: self.descriptionLabel.bottomAnchor, constant: 20),
             self.priceLabel.leftAnchor.constraint(equalTo: productNameLabel.leftAnchor),
             self.priceLabel.rightAnchor.constraint(equalTo: productNameLabel.rightAnchor),
-
+            
             self.inBasketButton.topAnchor.constraint(equalTo: self.priceLabel.bottomAnchor, constant: 20.0),
             self.inBasketButton.heightAnchor.constraint(equalToConstant: 50.0),
             self.inBasketButton.widthAnchor.constraint(equalToConstant: 250.0),
-            self.inBasketButton.centerXAnchor.constraint(equalTo: self.scrollView.centerXAnchor)
+            self.inBasketButton.centerXAnchor.constraint(equalTo: self.scrollView.centerXAnchor),
+            
+            self.reviewsLabel.topAnchor.constraint(equalTo: self.inBasketButton.bottomAnchor, constant: 20),
+            self.reviewsLabel.leftAnchor.constraint(equalTo: productNameLabel.leftAnchor),
+            self.reviewsLabel.rightAnchor.constraint(equalTo: productNameLabel.rightAnchor),
+            
+            self.getReviewButton.topAnchor.constraint(equalTo: self.reviewsLabel.bottomAnchor, constant: 20.0),
+            self.getReviewButton.heightAnchor.constraint(equalToConstant: 50.0),
+            self.getReviewButton.widthAnchor.constraint(equalToConstant: 250.0),
+            self.getReviewButton.centerXAnchor.constraint(equalTo: self.scrollView.centerXAnchor),
+            
+            self.addReviewButton.topAnchor.constraint(equalTo: self.getReviewButton.bottomAnchor, constant: 20.0),
+            self.addReviewButton.heightAnchor.constraint(equalToConstant: 50.0),
+            self.addReviewButton.widthAnchor.constraint(equalToConstant: 250.0),
+            self.addReviewButton.centerXAnchor.constraint(equalTo: self.scrollView.centerXAnchor),
         ])
     }
     
@@ -151,15 +209,20 @@ class ProductCardView: UIView {
             picImage.image = UIImage(named: "noPhoto")
         }
     }
-
+    
     // MARK: - Actions
     
     @objc private func inBasketButtonPressed() {
-        
         delegate?.tapInBasketButtonPressed()
-       
     }
     
+    @objc private func getReviewButtonPressed() {
+        delegate?.tapGetReviewButton()
+    }
+    
+    @objc private func addReviewButtonPressed() {
+        delegate?.tapAddReviewButton()
+    }
 
 }
 

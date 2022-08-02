@@ -14,16 +14,11 @@ class ProductCardViewController: UIViewController {
     }
     
     var productId: Int
-//    var goodByld: GoodByldResult = GoodByldResult(result: nil,
-//                                                  productName: nil,
-//                                                  price: nil,
-//                                                  description: nil,
-//                                                  productId: nil,
-//                                                  picUrl: nil)
+    
     let requestFactory = RequestFactory()
     
     
-    
+    // MARK: - Init
     init(productId: Int) {
         self.productId = productId
         super.init(nibName: nil, bundle: nil)
@@ -33,16 +28,13 @@ class ProductCardViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         let view = ProductCardView()
         getGoodBtId(idProduct: productId)
-//        view.configure(goodByld)
         view.delegate = self
         self.view = view
-
-
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -52,28 +44,33 @@ class ProductCardViewController: UIViewController {
     }
     
     func getGoodBtId(idProduct: Int) {
-    let GoodByld = requestFactory.makeGetGoodByldRequestFactory()
+        let GoodByld = requestFactory.makeGetGoodByldRequestFactory()
         GoodByld.getGoodByld(productId: idProduct) { response in
             DispatchQueue.main.async {
-                    switch response.result {
-                    case .success(let result):
-                        print(result)
-                        self.productCardView.configure(result)
-                    case .failure(let error):
-                        print(error.localizedDescription)
-                    }
+                switch response.result {
+                case .success(let result):
+                    print(result)
+                    self.productCardView.configure(result)
+                case .failure(let error):
+                    print(error.localizedDescription)
                 }
+            }
         }
     }
     
 }
 
 extension ProductCardViewController: ProductCardViewProtocol {
-    func tapInBasketButtonPressed() {
-       print( "Нажата кнопка в корзину")
-        print(productId)
+    func tapGetReviewButton() {
+        navigationController?.pushViewController(GetReviewTableViewController(productId: productId), animated: true)
     }
     
+    func tapAddReviewButton() {
+        navigationController?.pushViewController(AddReviewViewController(productId: productId), animated: true)
+    }
     
-    
+    func tapInBasketButtonPressed() {
+        print( "Нажата кнопка в корзину")
+        print(productId)
+    }
 }
