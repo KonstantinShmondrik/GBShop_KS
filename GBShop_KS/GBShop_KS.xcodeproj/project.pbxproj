@@ -69,7 +69,7 @@
 		00B747C628A0222F00EE595F /* AppBasket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B747C528A0222F00EE595F /* AppBasket.swift */; };
 		00B747C928A0415C00EE595F /* BasketTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B747C828A0415C00EE595F /* BasketTableViewController.swift */; };
 		00B747CD28A0437400EE595F /* BascetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B747CC28A0437400EE595F /* BascetTableViewCell.swift */; };
-		00B747CF28A0530D00EE595F /* FooterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B747CE28A0530D00EE595F /* FooterTableViewCell.swift */; };
+		00B747CF28A0530D00EE595F /* FooterBasketTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B747CE28A0530D00EE595F /* FooterBasketTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -154,7 +154,7 @@
 		00B747C528A0222F00EE595F /* AppBasket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppBasket.swift; sourceTree = "<group>"; };
 		00B747C828A0415C00EE595F /* BasketTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketTableViewController.swift; sourceTree = "<group>"; };
 		00B747CC28A0437400EE595F /* BascetTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BascetTableViewCell.swift; sourceTree = "<group>"; };
-		00B747CE28A0530D00EE595F /* FooterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterTableViewCell.swift; sourceTree = "<group>"; };
+		00B747CE28A0530D00EE595F /* FooterBasketTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterBasketTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -722,7 +722,7 @@
 			isa = PBXGroup;
 			children = (
 				00B747CC28A0437400EE595F /* BascetTableViewCell.swift */,
-				00B747CE28A0530D00EE595F /* FooterTableViewCell.swift */,
+				00B747CE28A0530D00EE595F /* FooterBasketTableViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -878,7 +878,7 @@
 				000375492896F11A0080758D /* ProductCardViewController.swift in Sources */,
 				0032D230286117A4001CFA8A /* ResponseCodable.swift in Sources */,
 				000375582899BA5C0080758D /* AddReviewView.swift in Sources */,
-				00B747CF28A0530D00EE595F /* FooterTableViewCell.swift in Sources */,
+				00B747CF28A0530D00EE595F /* FooterBasketTableViewCell.swift in Sources */,
 				0032D23B2861D207001CFA8A /* AuthRequestFactory.swift in Sources */,
 				004CA93C286DD083005F2C7F /* GoodByldResult.swift in Sources */,
 				0003751F288886550080758D /* RegistrationViewController.swift in Sources */,
