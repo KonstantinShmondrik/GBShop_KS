@@ -66,6 +66,7 @@
 		004CA944286DD6B7005F2C7F /* Catalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004CA943286DD6B7005F2C7F /* Catalog.swift */; };
 		004CA946286DE7CB005F2C7F /* GoodByldRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004CA945286DE7CB005F2C7F /* GoodByldRequestFactory.swift */; };
 		004CA948286DEA56005F2C7F /* GoodByld.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004CA947286DEA56005F2C7F /* GoodByld.swift */; };
+		00B747C628A0222F00EE595F /* AppBasket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B747C528A0222F00EE595F /* AppBasket.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -147,6 +148,7 @@
 		004CA943286DD6B7005F2C7F /* Catalog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Catalog.swift; sourceTree = "<group>"; };
 		004CA945286DE7CB005F2C7F /* GoodByldRequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodByldRequestFactory.swift; sourceTree = "<group>"; };
 		004CA947286DEA56005F2C7F /* GoodByld.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodByld.swift; sourceTree = "<group>"; };
+		00B747C528A0222F00EE595F /* AppBasket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppBasket.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -555,6 +557,7 @@
 		0025967A28525FC700AC90C7 /* BusinessLogic */ = {
 			isa = PBXGroup;
 			children = (
+				00B747C428A0220B00EE595F /* AppBasket */,
 				0003750A288821090080758D /* AppStartManager */,
 				0032D2392861D1D0001CFA8A /* Network */,
 			);
@@ -681,6 +684,14 @@
 				004CA947286DEA56005F2C7F /* GoodByld.swift */,
 			);
 			path = GoodByld;
+			sourceTree = "<group>";
+		};
+		00B747C428A0220B00EE595F /* AppBasket */ = {
+			isa = PBXGroup;
+			children = (
+				00B747C528A0222F00EE595F /* AppBasket.swift */,
+			);
+			path = AppBasket;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -842,6 +853,7 @@
 				004CA93F286DD365005F2C7F /* CatalogRequestFactory.swift in Sources */,
 				00037503287DBF210080758D /* BasketResult.swift in Sources */,
 				00037537289053F90080758D /* CircleImageView.swift in Sources */,
+				00B747C628A0222F00EE595F /* AppBasket.swift in Sources */,
 				00037507287DC4A10080758D /* Basket.swift in Sources */,
 				000374FB287748E60080758D /* Review.swift in Sources */,
 				000374F1287611A30080758D /* DefaultResult.swift in Sources */,

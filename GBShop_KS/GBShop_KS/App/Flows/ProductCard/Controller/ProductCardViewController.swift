@@ -14,6 +14,7 @@ class ProductCardViewController: UIViewController {
     }
     
     var productId: Int
+    var product: GoodByldResult?
     
     let requestFactory = RequestFactory()
     
@@ -51,6 +52,7 @@ class ProductCardViewController: UIViewController {
                 case .success(let result):
                     print(result)
                     self.productCardView.configure(result)
+                    self.product = result
                 case .failure(let error):
                     print(error.localizedDescription)
                 }
@@ -58,6 +60,11 @@ class ProductCardViewController: UIViewController {
         }
     }
     
+    private func showAddToBasketSuccessAlert() {
+        let alert = UIAlertController(title: "Корзина", message: "Товар успешно добавлен в корзину.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ок", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
 }
 
 extension ProductCardViewController: ProductCardViewProtocol {
@@ -70,7 +77,23 @@ extension ProductCardViewController: ProductCardViewProtocol {
     }
     
     func tapInBasketButtonPressed() {
-        print( "Нажата кнопка в корзину")
-        print(productId)
+        guard let product = product else { return }
+        let basket = requestFactory.makeBasketRequestFactory()
+        let basketRequest = BasketRequest(idProduct: product.productId ?? 0, quantity: 1)
+        basket.addToBasket(basket: basketRequest) { response in
+            switch response.result {
+            case .success:
+                DispatchQueue.main.async {
+                    let item = AppBasketItem(productId: product.productId,
+                                             productName: product.productName,
+                                             price: product.price,
+                                             picUrl: product.picUrl)
+                    AppBasket.shared.items.append(item)
+                    self.showAddToBasketSuccessAlert()
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
     }
 }
