@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FooterTableViewCell: UITableViewCell {
+class FooterBasketTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
