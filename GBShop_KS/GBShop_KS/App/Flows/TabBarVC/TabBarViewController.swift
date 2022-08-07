@@ -22,14 +22,23 @@ final class TabBarViewController: UITabBarController, UITabBarControllerDelegate
         catalogVC.tabBarItem = tabBarItemWelcomeScreen
         
         
-        let EditDataVC = EditDataViewController()
+        let editDataVC = EditDataViewController()
         
         let tabBarItemEditData = UITabBarItem(title: "Пользователь",
                                               image: UIImage(systemName: "person.crop.circle"),
                                               selectedImage: UIImage(systemName: "person.crop.circle.fill"))
         
-        EditDataVC.tabBarItem = tabBarItemEditData
-        self.viewControllers = [catalogVC, EditDataVC]
+        editDataVC.tabBarItem = tabBarItemEditData
+        
+        let basketVC = BasketTableViewController()
+        
+        let tabBarItemBasket = UITabBarItem(title: "Корзина",
+                                              image: UIImage(systemName: "cart"),
+                                              selectedImage: UIImage(systemName: "cart.fill"))
+        
+        basketVC.tabBarItem = tabBarItemBasket
+       
+        self.viewControllers = [catalogVC, basketVC, editDataVC]
         
     }
 }
