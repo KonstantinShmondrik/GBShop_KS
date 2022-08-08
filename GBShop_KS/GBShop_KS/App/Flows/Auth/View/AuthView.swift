@@ -51,6 +51,7 @@ class AuthView: UIView {
     private(set) lazy var loginButton: UIButton = {
         let button = UIButton(type: .system)
         button.backgroundColor = .blue
+        button.tintColor = .white
         button.setTitle("Войти", for: .normal)
         button.clipsToBounds = true
         button.layer.cornerRadius = 16.0

@@ -202,8 +202,9 @@ class EditDataView: UIView {
     }()
     
     private(set) lazy var saveButton: UIButton = {
-        let button = UIButton()
+        let button = UIButton(type: .system)
         button.backgroundColor = .blue
+        button.tintColor = .white
         button.setTitle("Сохранить", for: .normal)
         button.clipsToBounds = true
         button.layer.cornerRadius = 16.0
@@ -214,7 +215,7 @@ class EditDataView: UIView {
     }()
     
     private(set) lazy var logoutButton: UIButton = {
-        let button = UIButton()
+        let button = UIButton(type: .system)
         button.backgroundColor = .red
         button.tintColor = .white
         button.layer.cornerRadius = 16.0

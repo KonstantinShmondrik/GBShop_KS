@@ -71,6 +71,7 @@ class ProductCardView: UIView {
     private(set) lazy var inBasketButton: UIButton = {
         let button = UIButton(type: .system)
         button.backgroundColor = .blue
+        button.tintColor = .white
         button.setTitle("В корзину", for: .normal)
         button.clipsToBounds = true
         button.layer.cornerRadius = 16.0

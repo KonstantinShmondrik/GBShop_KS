@@ -31,6 +31,7 @@ class FooterBasketTableViewCell: UITableViewHeaderFooterView {
     private(set) lazy var payButton: UIButton = {
         let button = UIButton(type: .system)
         button.backgroundColor = .blue
+        button.tintColor = .white
         button.setTitle("Оформить покупку", for: .normal)
         button.clipsToBounds = true
         button.layer.cornerRadius = 16.0

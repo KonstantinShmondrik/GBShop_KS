@@ -109,7 +109,11 @@ extension BasketTableViewController: FooterBasketTableViewCellProtocol {
         let basketFactory = requestFactory.makeBasketRequestFactory()
         let user = User(id: 123)
         let alert = UIAlertController(title: "Корзина", message: "Спасибо за покупку!", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Ок", style: .default, handler: nil))
+        alert.addAction(UIAlertAction(title: "Ок", style: .default, handler: {_ in
+            UIView.animate(withDuration: 0.2) {
+                self.tabBarController?.selectedIndex = 0
+            }
+        }))
         basketFactory.payBasket(user: user) { response in
             switch response.result {
             case .success:
