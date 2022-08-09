@@ -32,8 +32,8 @@ class AuthViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        authView.loginTexField.text = "Somebody" // заглушки для дебага
-        authView.passwordTexField.text = "mypassword"
+//        authView.loginTexField.text = "Somebody" // заглушки для дебага
+//        authView.passwordTexField.text = "mypassword"
         
     }
     

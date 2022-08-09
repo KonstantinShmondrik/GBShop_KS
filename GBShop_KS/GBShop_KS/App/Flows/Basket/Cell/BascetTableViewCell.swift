@@ -49,12 +49,8 @@ class BascetTableViewCell: UITableViewCell {
     
     private(set) lazy var deleteButton: UIButton = {
         let button = UIButton(type: .system)
-        //        button.backgroundColor = .blue
         button.setImage(UIImage(systemName: "trash", withConfiguration: .none), for: .normal)
         button.tintColor = .black
-        //        button.setTitle("В корзину", for: .normal)
-        //        button.clipsToBounds = true
-        //        button.layer.cornerRadius = 16.0
         button.addTarget(self, action: #selector(deleteButtonPressed), for: .touchUpInside)
         
         return button
@@ -124,8 +120,7 @@ class BascetTableViewCell: UITableViewCell {
             picImage.image = UIImage(named: "noPhoto")
         }
     }
-    
-    
+
     // MARK: - Actions
     
     @objc private func deleteButtonPressed() {

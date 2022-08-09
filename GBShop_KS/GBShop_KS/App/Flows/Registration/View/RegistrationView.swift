@@ -110,6 +110,7 @@ class RegistrationView: UIView {
     private(set) lazy var registButton: UIButton = {
         let button = UIButton(type: .system)
         button.backgroundColor = .blue
+        button.tintColor = .white
         button.setTitle("Зарегестрироваться", for: .normal)
         button.clipsToBounds = true
         button.layer.cornerRadius = 16.0

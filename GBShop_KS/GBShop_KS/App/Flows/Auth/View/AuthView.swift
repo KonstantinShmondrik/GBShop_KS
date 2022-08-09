@@ -51,6 +51,7 @@ class AuthView: UIView {
     private(set) lazy var loginButton: UIButton = {
         let button = UIButton(type: .system)
         button.backgroundColor = .blue
+        button.tintColor = .white
         button.setTitle("Войти", for: .normal)
         button.clipsToBounds = true
         button.layer.cornerRadius = 16.0
@@ -95,6 +96,7 @@ class AuthView: UIView {
         self.setupControls()
         self.registerNotifications()
         self.hideKeyboardGesture()
+        self.setupAccessibily()
     }
     
     required init?(coder: NSCoder) {
@@ -182,6 +184,15 @@ class AuthView: UIView {
         let hideKeyboardGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
         
         scrollView.addGestureRecognizer(hideKeyboardGesture)
+    }
+    
+    private func setupAccessibily() {
+        
+        self.accessibilityIdentifier = "loginView"
+        self.loginTexField.accessibilityIdentifier = "loginTexField"
+        self.passwordTexField.accessibilityIdentifier = "passwordTexField"
+        self.loginButton.accessibilityIdentifier = "loginButton"
+        self.registButton.accessibilityIdentifier = "registButton"
     }
     // MARK: - Actions
     
