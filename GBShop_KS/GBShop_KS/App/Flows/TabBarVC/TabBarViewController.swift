@@ -12,6 +12,7 @@ final class TabBarViewController: UITabBarController, UITabBarControllerDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         self.delegate = self
+        view.accessibilityIdentifier = "tabBarViewController"
         
         let catalogVC = CatalogTableViewController()
         
