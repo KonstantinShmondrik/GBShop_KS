@@ -47,6 +47,7 @@ class AuthViewController: UIViewController {
     // MARK: - private func
     
     private func showError(_ errorMessage: String) {
+        GALogger.logEvent(name: "login", key: "result", value: "failure")
         let alert = UIAlertController(title: "Ошибка авторизации",
                                       message: errorMessage,
                                       preferredStyle: .alert)
@@ -57,6 +58,7 @@ class AuthViewController: UIViewController {
     }
     
     private func proceedToWelcomeScreen() {
+        GALogger.logEvent(name: "login", key: "result", value: "success")
         navigationController?.pushViewController(TabBarViewController(), animated: true)
     }
     

@@ -19,6 +19,8 @@ class BasketTableViewController: UITableViewController {
         tableView.dataSource = self
         tableView.delegate = self
         
+        GALogger.logEvent(name: "view_basket", key: "result", value: "success")
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {

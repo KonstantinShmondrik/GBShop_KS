@@ -94,6 +94,7 @@ extension ProductCardViewController: ProductCardViewProtocol {
                                              price: product.price,
                                              picUrl: product.picUrl)
                     AppBasket.shared.items.append(item)
+                    GALogger.logEvent(name: "Add to basket", key: "result", value: "success")
                     self.showAddToBasketSuccessAlert()
                 }
             case .failure(let error):

@@ -18,7 +18,8 @@ class CatalogTableViewController: UITableViewController {
         tableView.register(CatalogTableViewCell.self, forCellReuseIdentifier: CatalogTableViewCell.reuseIdentifier)
         tableView.dataSource = self
         tableView.delegate = self
-        getCatalog(pageNumber: 1, categoryId: 1) 
+        getCatalog(pageNumber: 1, categoryId: 1)
+        GALogger.logEvent(name: "catalog_view", key: "result", value: "success")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -72,7 +73,7 @@ class CatalogTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let idProduct = catalog.products[indexPath.row].idProduct else {
             Crashlytics.crashlytics().log("productId is nil!")
-            return 
+            return
         }
         
         navigationController?.pushViewController(ProductCardViewController(productId: idProduct), animated: true)
