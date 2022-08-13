@@ -57,13 +57,13 @@ class GetReviewTableViewController: UITableViewController {
     func getReviews(idProduct: Int) {
         let review = requestFactory.makeRewiewRequestFactory()
         
-        review.getReviews(productId: idProduct) { response in
+        review.getReviews(productId: idProduct) { [weak self] response in
             switch response.result {
             case .success(let result):
-                self.reviews = result
+                self?.reviews = result
                 print(result)
                 DispatchQueue.main.async {
-                    self.tableView.reloadData()
+                    self?.tableView.reloadData()
                 }
             case .failure(let error):
                 print(error.localizedDescription)

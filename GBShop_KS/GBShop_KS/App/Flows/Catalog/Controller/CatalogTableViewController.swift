@@ -56,13 +56,13 @@ class CatalogTableViewController: UITableViewController {
         let catalog = requestFactory.makeGetCatalogRequestFactory()
         
         catalog.getCatalog(pageNumber: pageNumber,
-                           categoryId: categoryId) { response in
+                           categoryId: categoryId) { [weak self] response in
             switch response.result {
             case .success(let result):
-                self.catalog = result
+                self?.catalog = result
                 print(result)
                 DispatchQueue.main.async {
-                    self.tableView.reloadData()
+                    self?.tableView.reloadData()
                 }
             case .failure(let error):
                 print(error.localizedDescription)

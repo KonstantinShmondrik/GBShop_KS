@@ -97,11 +97,11 @@ extension BasketTableViewController: BascetTableViewCellProtocol {
         
         alert.addAction(UIAlertAction(title: "Нет", style: .default, handler: nil))
         
-        basketFactory.deleteFromBasket(basket: request)  { response in
+        basketFactory.deleteFromBasket(basket: request)  { [weak self] response in
             switch response.result {
             case .success:
                 DispatchQueue.main.async {
-                    self.present(alert, animated: true, completion: nil)
+                    self?.present(alert, animated: true, completion: nil)
                 }
             case .failure(let error): print(error.localizedDescription)
             }
@@ -121,13 +121,13 @@ extension BasketTableViewController: FooterBasketTableViewCellProtocol {
                 self.tabBarController?.selectedIndex = 0
             }
         }))
-        basketFactory.payBasket(user: user) { response in
+        basketFactory.payBasket(user: user) { [weak self] response in
             switch response.result {
             case .success:
                 DispatchQueue.main.async {
-                    self.present(alert, animated: true, completion: {
+                    self?.present(alert, animated: true, completion: {
                         AppBasket.shared.items = []
-                        self.tableView.reloadData()
+                        self?.tableView.reloadData()
                     })
                 }
             case .failure(let error): print(error.localizedDescription)

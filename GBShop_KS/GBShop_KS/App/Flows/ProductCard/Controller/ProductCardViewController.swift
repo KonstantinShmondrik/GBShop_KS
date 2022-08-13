@@ -47,13 +47,13 @@ class ProductCardViewController: UIViewController {
     
     func getGoodBtId(idProduct: Int) {
         let goodByld = requestFactory.makeGetGoodByldRequestFactory()
-        goodByld.getGoodByld(productId: idProduct) { response in
+        goodByld.getGoodByld(productId: idProduct) { [weak self] response in
             DispatchQueue.main.async {
                 switch response.result {
                 case .success(let result):
                     print(result)
-                    self.productCardView.configure(result)
-                    self.product = result
+                    self?.productCardView.configure(result)
+                    self?.product = result
                 case .failure(let error):
                     print(error.localizedDescription)
                 }
@@ -85,7 +85,7 @@ extension ProductCardViewController: ProductCardViewProtocol {
         
         let basket = requestFactory.makeBasketRequestFactory()
         let basketRequest = BasketRequest(idProduct: product.productId ?? 0, quantity: 1)
-        basket.addToBasket(basket: basketRequest) { response in
+        basket.addToBasket(basket: basketRequest) { [weak self] response in
             switch response.result {
             case .success:
                 DispatchQueue.main.async {
@@ -95,7 +95,7 @@ extension ProductCardViewController: ProductCardViewProtocol {
                                              picUrl: product.picUrl)
                     AppBasket.shared.items.append(item)
                     GALogger.logEvent(name: "Add to basket", key: "result", value: "success")
-                    self.showAddToBasketSuccessAlert()
+                    self?.showAddToBasketSuccessAlert()
                 }
             case .failure(let error):
                 print(error.localizedDescription)

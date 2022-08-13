@@ -62,14 +62,14 @@ class AddReviewViewController: UIViewController {
 extension AddReviewViewController: AddReviewViewProtocol {
     func tapSaveReviewButton(reviewResult: ReviewResult) {
         let review = requestFactory.makeRewiewRequestFactory()
-        review.addReview(review: reviewResult) { response in
+        review.addReview(review: reviewResult) { [weak self] response in
             DispatchQueue.main.async {
                 switch response.result {
                 case .success(let result):
-                    result.result == 1 ? self.proceedToWelcomeScreen(message: result.successMessage ?? "") : self.showError(result.errorMessage ?? "Неизвестная ошибка.")
+                    result.result == 1 ? self?.proceedToWelcomeScreen(message: result.successMessage ?? "") : self?.showError(result.errorMessage ?? "Неизвестная ошибка.")
                     print(result)
                 case .failure(let error):
-                    self.showError(error.localizedDescription)
+                    self?.showError(error.localizedDescription)
                     print(error.localizedDescription)
                 }
             }
