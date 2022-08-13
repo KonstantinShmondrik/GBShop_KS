@@ -70,6 +70,8 @@
 		00B747C928A0415C00EE595F /* BasketTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B747C828A0415C00EE595F /* BasketTableViewController.swift */; };
 		00B747CD28A0437400EE595F /* BascetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B747CC28A0437400EE595F /* BascetTableViewCell.swift */; };
 		00B747CF28A0530D00EE595F /* FooterBasketTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B747CE28A0530D00EE595F /* FooterBasketTableViewCell.swift */; };
+		00EBCA5A28A7F07C00CE60A9 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 00EBCA5928A7F07C00CE60A9 /* FirebaseCrashlytics */; };
+		00EBCA5D28A7F77800CE60A9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 00EBCA5C28A7F77800CE60A9 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -155,6 +157,7 @@
 		00B747C828A0415C00EE595F /* BasketTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketTableViewController.swift; sourceTree = "<group>"; };
 		00B747CC28A0437400EE595F /* BascetTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BascetTableViewCell.swift; sourceTree = "<group>"; };
 		00B747CE28A0530D00EE595F /* FooterBasketTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterBasketTableViewCell.swift; sourceTree = "<group>"; };
+		00EBCA5C28A7F77800CE60A9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +165,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00EBCA5A28A7F07C00CE60A9 /* FirebaseCrashlytics in Frameworks */,
 				0003753F2890AC630080758D /* SDWebImage in Frameworks */,
 				0032D229286110AF001CFA8A /* Alamofire in Frameworks */,
 			);
@@ -505,6 +509,7 @@
 			isa = PBXGroup;
 			children = (
 				0025965128525F9700AC90C7 /* Info.plist */,
+				00EBCA5C28A7F77800CE60A9 /* GoogleService-Info.plist */,
 			);
 			path = Environments;
 			sourceTree = "<group>";
@@ -737,6 +742,7 @@
 				0025963C28525F9400AC90C7 /* Sources */,
 				0025963D28525F9400AC90C7 /* Frameworks */,
 				0025963E28525F9400AC90C7 /* Resources */,
+				00EBCA5B28A7F66100CE60A9 /* Crashlitics */,
 			);
 			buildRules = (
 			);
@@ -746,6 +752,7 @@
 			packageProductDependencies = (
 				0032D228286110AF001CFA8A /* Alamofire */,
 				0003753E2890AC630080758D /* SDWebImage */,
+				00EBCA5928A7F07C00CE60A9 /* FirebaseCrashlytics */,
 			);
 			productName = GBShop_KS;
 			productReference = 0025964028525F9400AC90C7 /* GBShop_KS.app */;
@@ -822,6 +829,7 @@
 			packageReferences = (
 				0032D227286110AF001CFA8A /* XCRemoteSwiftPackageReference "Alamofire" */,
 				0003753D2890AC630080758D /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				00EBCA5828A7F07C00CE60A9 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 0025964128525F9400AC90C7 /* Products */;
 			projectDirPath = "";
@@ -841,6 +849,7 @@
 			files = (
 				0025965028525F9700AC90C7 /* LaunchScreen.storyboard in Resources */,
 				0025964D28525F9700AC90C7 /* Assets.xcassets in Resources */,
+				00EBCA5D28A7F77800CE60A9 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -859,6 +868,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		00EBCA5B28A7F66100CE60A9 /* Crashlitics */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = Crashlitics;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${BUILD_DIR%/Build/*}/SourcePackages/checkouts/firebase-ios-sdk/Crashlytics/run\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0025963C28525F9400AC90C7 /* Sources */ = {
@@ -1102,7 +1132,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "gb.GBShop-KS";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.gb.GBShop-KS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -1130,7 +1160,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "gb.GBShop-KS";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.gb.GBShop-KS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -1272,6 +1302,14 @@
 				minimumVersion = 5.6.1;
 			};
 		};
+		00EBCA5828A7F07C00CE60A9 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1284,6 +1322,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 0032D227286110AF001CFA8A /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		00EBCA5928A7F07C00CE60A9 /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 00EBCA5828A7F07C00CE60A9 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
