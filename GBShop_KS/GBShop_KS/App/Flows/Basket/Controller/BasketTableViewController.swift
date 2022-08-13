@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseCrashlytics
 
 class BasketTableViewController: UITableViewController {
     
@@ -76,7 +77,11 @@ class BasketTableViewController: UITableViewController {
 
 extension BasketTableViewController: BascetTableViewCellProtocol {
     func deleteItem(_ index: Int) {
-        guard let itemName = AppBasket.shared.items[index].productName else { return }
+        guard let itemName = AppBasket.shared.items[index].productName else {
+            Crashlytics.crashlytics().log("itemName is nil!")
+            return
+            
+        }
         let basketFactory = requestFactory.makeBasketRequestFactory()
         
         let request = BasketRequest(idProduct: index, quantity: 1)

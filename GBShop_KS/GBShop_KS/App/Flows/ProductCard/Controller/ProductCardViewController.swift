@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseCrashlytics
 
 class ProductCardViewController: UIViewController {
     
@@ -45,8 +46,8 @@ class ProductCardViewController: UIViewController {
     }
     
     func getGoodBtId(idProduct: Int) {
-        let GoodByld = requestFactory.makeGetGoodByldRequestFactory()
-        GoodByld.getGoodByld(productId: idProduct) { response in
+        let goodByld = requestFactory.makeGetGoodByldRequestFactory()
+        goodByld.getGoodByld(productId: idProduct) { response in
             DispatchQueue.main.async {
                 switch response.result {
                 case .success(let result):
@@ -77,7 +78,11 @@ extension ProductCardViewController: ProductCardViewProtocol {
     }
     
     func tapInBasketButtonPressed() {
-        guard let product = product else { return }
+        guard let product = product else {
+            Crashlytics.crashlytics().log("Product is nil!")
+            return
+        }
+        
         let basket = requestFactory.makeBasketRequestFactory()
         let basketRequest = BasketRequest(idProduct: product.productId ?? 0, quantity: 1)
         basket.addToBasket(basket: basketRequest) { response in

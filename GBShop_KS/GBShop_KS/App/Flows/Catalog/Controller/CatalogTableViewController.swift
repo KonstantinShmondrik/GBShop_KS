@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseCrashlytics
 
 class CatalogTableViewController: UITableViewController {
     
@@ -69,7 +70,10 @@ class CatalogTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let idProduct = catalog.products[indexPath.row].idProduct ?? 0
+        guard let idProduct = catalog.products[indexPath.row].idProduct else {
+            Crashlytics.crashlytics().log("productId is nil!")
+            return 
+        }
         
         navigationController?.pushViewController(ProductCardViewController(productId: idProduct), animated: true)
     }
