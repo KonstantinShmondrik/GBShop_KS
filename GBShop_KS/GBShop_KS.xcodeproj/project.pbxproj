@@ -853,7 +853,6 @@
 				0032D227286110AF001CFA8A /* XCRemoteSwiftPackageReference "Alamofire" */,
 				0003753D2890AC630080758D /* XCRemoteSwiftPackageReference "SDWebImage" */,
 				00EBCA5828A7F07C00CE60A9 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
-				00EBCA6128A813C800CE60A9 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 0025964128525F9400AC90C7 /* Products */;
 			projectDirPath = "";
@@ -902,7 +901,6 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}",
 			);
 			name = Crashlitics;
 			outputFileListPaths = (
@@ -1333,15 +1331,7 @@
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 9.0.0;
-			};
-		};
-		00EBCA6128A813C800CE60A9 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 9.0.0;
+				minimumVersion = 9.4.1;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
