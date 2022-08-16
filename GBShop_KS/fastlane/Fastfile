@@ -24,5 +24,8 @@ platform :ios do
      device: "iPhone 13"
     )
     
+    # make screenshots
+    capture_ios_screenshots
+    
   end
 end
