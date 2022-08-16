@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<testsuites name='GBShop_KSUITests.xctest' tests='23' failures='0'>
+  <testsuite name='GBShop_KSTests.GBShop_KSTests' tests='2' failures='0'>
+    <testcase classname='GBShop_KSTests.GBShop_KSTests' name='testExample' time='0.006'/>
+    <testcase classname='GBShop_KSTests.GBShop_KSTests' name='testPerformanceExample' time='0.381'/>
+  </testsuite>
+  <testsuite name='GBShop_KSTests.RequestsAuthTests' tests='4' failures='0'>
+    <testcase classname='GBShop_KSTests.RequestsAuthTests' name='testShouldPerformAuthRequest' time='8.566'/>
+    <testcase classname='GBShop_KSTests.RequestsAuthTests' name='testShouldPerformChangeUserDataRequest' time='0.318'/>
+    <testcase classname='GBShop_KSTests.RequestsAuthTests' name='testShouldPerformLogoutRequest' time='0.294'/>
+    <testcase classname='GBShop_KSTests.RequestsAuthTests' name='testShouldPerformRegistRequest' time='0.304'/>
+  </testsuite>
+  <testsuite name='GBShop_KSTests.RequestsBasketTests' tests='4' failures='0'>
+    <testcase classname='GBShop_KSTests.RequestsBasketTests' name='testShouldPerformAddBasketRequest' time='0.325'/>
+    <testcase classname='GBShop_KSTests.RequestsBasketTests' name='testShouldPerformDeleteBasketRequest' time='0.296'/>
+    <testcase classname='GBShop_KSTests.RequestsBasketTests' name='testShouldPerformGetBasketRequest' time='0.351'/>
+    <testcase classname='GBShop_KSTests.RequestsBasketTests' name='testShouldPerformPayBasketRequest' time='0.366'/>
+  </testsuite>
+  <testsuite name='GBShop_KSTests.RequestsCatalogTests' tests='2' failures='0'>
+    <testcase classname='GBShop_KSTests.RequestsCatalogTests' name='testShouldPerformGetCatalogRequest' time='0.319'/>
+    <testcase classname='GBShop_KSTests.RequestsCatalogTests' name='testShouldPerformGetGoodByldRequest' time='0.285'/>
+  </testsuite>
+  <testsuite name='GBShop_KSTests.RequestsReviewTests' tests='3' failures='0'>
+    <testcase classname='GBShop_KSTests.RequestsReviewTests' name='testShouldPerformAddReviewsRequest' time='0.287'/>
+    <testcase classname='GBShop_KSTests.RequestsReviewTests' name='testShouldPerformGetReviewsRequest' time='0.303'/>
+    <testcase classname='GBShop_KSTests.RequestsReviewTests' name='testShouldPerformRemoveReviewsRequest' time='0.338'/>
+  </testsuite>
+  <testsuite name='GBShop_KSTests.ResponseCodableTests' tests='1' failures='0'>
+    <testcase classname='GBShop_KSTests.ResponseCodableTests' name='testShouldDownloadAndParse' time='0.254'/>
+  </testsuite>
+  <testsuite name='GBShop_KSUITests.GBShop_KSUITests' tests='3' failures='0'>
+    <testcase classname='GBShop_KSUITests.GBShop_KSUITests' name='testFailedLogin' time='8.466'/>
+    <testcase classname='GBShop_KSUITests.GBShop_KSUITests' name='testRegist' time='4.840'/>
+    <testcase classname='GBShop_KSUITests.GBShop_KSUITests' name='testRightLogin' time='7.940'/>
+  </testsuite>
+  <testsuite name='GBShop_KSUITests.GBShop_KSUITestsLaunchTests' tests='4' failures='0'>
+    <testcase classname='GBShop_KSUITests.GBShop_KSUITestsLaunchTests' name='testLaunch' time='5.780'/>
+    <testcase classname='GBShop_KSUITests.GBShop_KSUITestsLaunchTests' name='testLaunch' time='6.099'/>
+    <testcase classname='GBShop_KSUITests.GBShop_KSUITestsLaunchTests' name='testLaunch' time='4.466'/>
+    <testcase classname='GBShop_KSUITests.GBShop_KSUITestsLaunchTests' name='testLaunch' time='5.932'/>
+  </testsuite>
+</testsuites>
