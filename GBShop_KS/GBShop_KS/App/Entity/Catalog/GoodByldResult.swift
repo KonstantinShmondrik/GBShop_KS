@@ -9,12 +9,12 @@ import Foundation
 
 // MARK: - GoodByld
 struct GoodByldResult: Codable {
-    let result: Int
-    let productName: String
-    let price: Int
-    let description: String
-    let productId: Int
-    let picUrl: String
+    let result: Int?
+    let productName: String?
+    let price: Int?
+    let description: String?
+    let productId: Int?
+    let picUrl: String?
 
     enum CodingKeys: String, CodingKey {
         case result

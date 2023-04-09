@@ -20,11 +20,11 @@ struct CatalogResult: Codable {
 
 // MARK: - Product
 struct ProductResult: Codable {
-    let idProduct: Int
-    let productName: String
-    let price: Int
-    let shortDescription: String
-    let picUrl: String
+    let idProduct: Int?
+    let productName: String?
+    let price: Int?
+    let shortDescription: String?
+    let picUrl: String?
     
     enum CodingKeys: String, CodingKey {
         case idProduct = "id_product"
