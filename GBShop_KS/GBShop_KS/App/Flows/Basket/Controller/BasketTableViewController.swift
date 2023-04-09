@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseCrashlytics
 
 class BasketTableViewController: UITableViewController {
     
@@ -17,6 +18,8 @@ class BasketTableViewController: UITableViewController {
         tableView.register(FooterBasketTableViewCell.self, forHeaderFooterViewReuseIdentifier: FooterBasketTableViewCell.reuseIdentifier)
         tableView.dataSource = self
         tableView.delegate = self
+        
+        GALogger.logEvent(name: "view_basket", key: "result", value: "success")
         
     }
     
@@ -76,7 +79,11 @@ class BasketTableViewController: UITableViewController {
 
 extension BasketTableViewController: BascetTableViewCellProtocol {
     func deleteItem(_ index: Int) {
-        guard let itemName = AppBasket.shared.items[index].productName else { return }
+        guard let itemName = AppBasket.shared.items[index].productName else {
+            Crashlytics.crashlytics().log("itemName is nil!")
+            return
+            
+        }
         let basketFactory = requestFactory.makeBasketRequestFactory()
         
         let request = BasketRequest(idProduct: index, quantity: 1)
@@ -90,11 +97,11 @@ extension BasketTableViewController: BascetTableViewCellProtocol {
         
         alert.addAction(UIAlertAction(title: "Нет", style: .default, handler: nil))
         
-        basketFactory.deleteFromBasket(basket: request)  { response in
+        basketFactory.deleteFromBasket(basket: request)  { [weak self] response in
             switch response.result {
             case .success:
                 DispatchQueue.main.async {
-                    self.present(alert, animated: true, completion: nil)
+                    self?.present(alert, animated: true, completion: nil)
                 }
             case .failure(let error): print(error.localizedDescription)
             }
@@ -114,13 +121,13 @@ extension BasketTableViewController: FooterBasketTableViewCellProtocol {
                 self.tabBarController?.selectedIndex = 0
             }
         }))
-        basketFactory.payBasket(user: user) { response in
+        basketFactory.payBasket(user: user) { [weak self] response in
             switch response.result {
             case .success:
                 DispatchQueue.main.async {
-                    self.present(alert, animated: true, completion: {
+                    self?.present(alert, animated: true, completion: {
                         AppBasket.shared.items = []
-                        self.tableView.reloadData()
+                        self?.tableView.reloadData()
                     })
                 }
             case .failure(let error): print(error.localizedDescription)

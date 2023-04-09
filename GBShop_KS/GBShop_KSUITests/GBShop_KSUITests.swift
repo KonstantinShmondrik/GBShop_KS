@@ -19,9 +19,14 @@ class GBShop_KSUITests: XCTestCase {
     }
     
     func testRightLogin() throws {
-        
+ 
         let app = XCUIApplication()
+        setupSnapshot(app)
+        
         app.launch()
+        
+        snapshot("LoginScreen")
+        
         let loginView = app.otherElements["loginView"].firstMatch
         let loginTexField = loginView.textFields["loginTexField"].firstMatch
         let passwordTexField = loginView.textFields["passwordTexField"].firstMatch
@@ -39,10 +44,15 @@ class GBShop_KSUITests: XCTestCase {
         loginButton.tap()
         XCTAssert(tabBarViewController.waitForExistence(timeout: 5))
         
+        snapshot("CatalogScreen")
+        
     }
     
     func testFailedLogin() throws {
         let app = XCUIApplication()
+        
+        setupSnapshot(app)
+        
         app.launch()
         let loginView = app.otherElements["loginView"].firstMatch
         let loginTexField = loginView.textFields["loginTexField"].firstMatch
@@ -58,6 +68,9 @@ class GBShop_KSUITests: XCTestCase {
         
         loginButton.tap()
         XCTAssert(alert.waitForExistence(timeout: 2.0))
+        
+        snapshot("AlertScreen")
+        
         alert.buttons.firstMatch.tap()
         
         XCTAssert(loginView.waitForExistence(timeout: 5))
@@ -69,6 +82,9 @@ class GBShop_KSUITests: XCTestCase {
     func testRegist() throws {
         
         let app = XCUIApplication()
+        
+        setupSnapshot(app)
+        
         app.launch()
         let loginView = app.otherElements["loginView"].firstMatch
         let registButton = loginView.buttons["registButton"].firstMatch
@@ -76,6 +92,8 @@ class GBShop_KSUITests: XCTestCase {
 
         registButton.tap()
         XCTAssert(registrationViewController.waitForExistence(timeout: 5))
+        
+        snapshot("RegistScreen")
         
     }
 

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseCrashlytics
 
 class AuthViewController: UIViewController {
     
@@ -46,6 +47,7 @@ class AuthViewController: UIViewController {
     // MARK: - private func
     
     private func showError(_ errorMessage: String) {
+        GALogger.logEvent(name: "login", key: "result", value: "failure")
         let alert = UIAlertController(title: "Ошибка авторизации",
                                       message: errorMessage,
                                       preferredStyle: .alert)
@@ -56,6 +58,7 @@ class AuthViewController: UIViewController {
     }
     
     private func proceedToWelcomeScreen() {
+        GALogger.logEvent(name: "login", key: "result", value: "success")
         navigationController?.pushViewController(TabBarViewController(), animated: true)
     }
     
@@ -66,14 +69,15 @@ extension AuthViewController: AuthViewProtocol {
     
     func tapLoginButton(userName: String, password: String) {
         let auth = requestFactory.makeAuthRequestFactory()
-        auth.login(userName: userName, password: password) { response in
+        auth.login(userName: userName, password: password) { [weak self] response in
+        
             DispatchQueue.main.async {
                 switch response.result {
                 case .success(let result):
-                    result.result == 1 ? self.proceedToWelcomeScreen() : self.showError(result.errorMessage ?? "Неизвестная ошибка.")
+                    result.result == 1 ? self?.proceedToWelcomeScreen() : self?.showError(result.errorMessage ?? "Неизвестная ошибка.")
                     print(result)
                 case .failure(let error):
-                    self.showError(error.localizedDescription)
+                    self?.showError(error.localizedDescription)
                     print(error.localizedDescription)
                 }
             }
