@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseCrashlytics
 
 class CatalogTableViewController: UITableViewController {
     
@@ -17,7 +18,8 @@ class CatalogTableViewController: UITableViewController {
         tableView.register(CatalogTableViewCell.self, forCellReuseIdentifier: CatalogTableViewCell.reuseIdentifier)
         tableView.dataSource = self
         tableView.delegate = self
-        getCatalog(pageNumber: 1, categoryId: 1) 
+        getCatalog(pageNumber: 1, categoryId: 1)
+        GALogger.logEvent(name: "catalog_view", key: "result", value: "success")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -54,13 +56,13 @@ class CatalogTableViewController: UITableViewController {
         let catalog = requestFactory.makeGetCatalogRequestFactory()
         
         catalog.getCatalog(pageNumber: pageNumber,
-                           categoryId: categoryId) { response in
+                           categoryId: categoryId) { [weak self] response in
             switch response.result {
             case .success(let result):
-                self.catalog = result
+                self?.catalog = result
                 print(result)
                 DispatchQueue.main.async {
-                    self.tableView.reloadData()
+                    self?.tableView.reloadData()
                 }
             case .failure(let error):
                 print(error.localizedDescription)
@@ -69,7 +71,10 @@ class CatalogTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let idProduct = catalog.products[indexPath.row].idProduct ?? 0
+        guard let idProduct = catalog.products[indexPath.row].idProduct else {
+            Crashlytics.crashlytics().log("productId is nil!")
+            return
+        }
         
         navigationController?.pushViewController(ProductCardViewController(productId: idProduct), animated: true)
     }

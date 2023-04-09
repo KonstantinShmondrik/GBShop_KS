@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,31 +17,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        FirebaseApp.configure()
     
-        let auth = requestFactory.makeAuthRequestFactory()
-        let regist = requestFactory.makeRegistRequestFactory()
-        let changeUserData = requestFactory.makeСhangeUserDataFactory()
-        let Catalog = requestFactory.makeGetCatalogRequestFactory()
-        let GoodByld = requestFactory.makeGetGoodByldRequestFactory()
-        let review = requestFactory.makeRewiewRequestFactory()
-        let basket = requestFactory.makeBasketRequestFactory()
-        
-        let user = User(id: 123,
-                        login: "Somebody",
-                        password: "mypassword",
-                        email: "some@some.ru",
-                        gender: "m",
-                        creditCard: "9872389-2424-234224-234",
-                        bio: "This is good! I think I will switch to another language",
-                        name: "John",
-                        lastname: "Doe")
-        
-        let pageNumber = 1
-        let categoryId = 1
-        let idProduct = 123
-        let reviewResult = ReviewResult(userId: 123, reviewText: "Хороший товар - надо брать!", productId: 123)
-        let basketRequest = BasketRequest(idProduct: idProduct, quantity: 1)
-        
+//        let auth = requestFactory.makeAuthRequestFactory()
+//        let regist = requestFactory.makeRegistRequestFactory()
+//        let changeUserData = requestFactory.makeСhangeUserDataFactory()
+//        let Catalog = requestFactory.makeGetCatalogRequestFactory()
+//        let GoodByld = requestFactory.makeGetGoodByldRequestFactory()
+//        let review = requestFactory.makeRewiewRequestFactory()
+//        let basket = requestFactory.makeBasketRequestFactory()
+//        
+//        let user = User(id: 123,
+//                        login: "Somebody",
+//                        password: "mypassword",
+//                        email: "some@some.ru",
+//                        gender: "m",
+//                        creditCard: "9872389-2424-234224-234",
+//                        bio: "This is good! I think I will switch to another language",
+//                        name: "John",
+//                        lastname: "Doe")
+//        
+//        let pageNumber = 1
+//        let categoryId = 1
+//        let idProduct = 123
+//        let reviewResult = ReviewResult(userId: 123, reviewText: "Хороший товар - надо брать!", productId: 123)
+//        let basketRequest = BasketRequest(idProduct: idProduct, quantity: 1)
+//        
 //        auth.login(userName: "Somebody", password: "mypassword") { response in
 //            switch response.result {
 //            case .success(let result):

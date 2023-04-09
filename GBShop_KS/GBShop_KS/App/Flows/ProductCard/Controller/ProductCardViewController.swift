@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseCrashlytics
 
 class ProductCardViewController: UIViewController {
     
@@ -14,6 +15,7 @@ class ProductCardViewController: UIViewController {
     }
     
     var productId: Int
+    var product: GoodByldResult?
     
     let requestFactory = RequestFactory()
     
@@ -44,13 +46,14 @@ class ProductCardViewController: UIViewController {
     }
     
     func getGoodBtId(idProduct: Int) {
-        let GoodByld = requestFactory.makeGetGoodByldRequestFactory()
-        GoodByld.getGoodByld(productId: idProduct) { response in
+        let goodByld = requestFactory.makeGetGoodByldRequestFactory()
+        goodByld.getGoodByld(productId: idProduct) { [weak self] response in
             DispatchQueue.main.async {
                 switch response.result {
                 case .success(let result):
                     print(result)
-                    self.productCardView.configure(result)
+                    self?.productCardView.configure(result)
+                    self?.product = result
                 case .failure(let error):
                     print(error.localizedDescription)
                 }
@@ -58,6 +61,11 @@ class ProductCardViewController: UIViewController {
         }
     }
     
+    private func showAddToBasketSuccessAlert() {
+        let alert = UIAlertController(title: "Корзина", message: "Товар успешно добавлен в корзину.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ок", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
 }
 
 extension ProductCardViewController: ProductCardViewProtocol {
@@ -70,7 +78,28 @@ extension ProductCardViewController: ProductCardViewProtocol {
     }
     
     func tapInBasketButtonPressed() {
-        print( "Нажата кнопка в корзину")
-        print(productId)
+        guard let product = product else {
+            Crashlytics.crashlytics().log("Product is nil!")
+            return
+        }
+        
+        let basket = requestFactory.makeBasketRequestFactory()
+        let basketRequest = BasketRequest(idProduct: product.productId ?? 0, quantity: 1)
+        basket.addToBasket(basket: basketRequest) { [weak self] response in
+            switch response.result {
+            case .success:
+                DispatchQueue.main.async {
+                    let item = AppBasketItem(productId: product.productId,
+                                             productName: product.productName,
+                                             price: product.price,
+                                             picUrl: product.picUrl)
+                    AppBasket.shared.items.append(item)
+                    GALogger.logEvent(name: "Add to basket", key: "result", value: "success")
+                    self?.showAddToBasketSuccessAlert()
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
     }
 }

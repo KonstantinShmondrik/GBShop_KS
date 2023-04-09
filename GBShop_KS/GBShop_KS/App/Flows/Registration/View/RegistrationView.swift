@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseCrashlytics
 
 protocol RegistViewProtocol: AnyObject {
     func tapRegistButton(user: User)
@@ -110,6 +111,7 @@ class RegistrationView: UIView {
     private(set) lazy var registButton: UIButton = {
         let button = UIButton(type: .system)
         button.backgroundColor = .blue
+        button.tintColor = .white
         button.setTitle("Зарегестрироваться", for: .normal)
         button.clipsToBounds = true
         button.layer.cornerRadius = 16.0
@@ -295,7 +297,10 @@ class RegistrationView: UIView {
     }
     
     @objc func keyboardWillShow(notification: NSNotification) {
-        guard let userInfo = notification.userInfo else { return }
+        guard let userInfo = notification.userInfo else {
+            Crashlytics.crashlytics().log("userInfo is nil!")
+            return
+        }
         
         var keyboardFrame: CGRect = (userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
         var contentInset: UIEdgeInsets = self.scrollView.contentInset
