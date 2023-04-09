@@ -9,7 +9,7 @@ import Foundation
 
 import Foundation
 
- struct DefaultResponse: Codable {
+ struct DefaultResult: Codable {
      var result: Int
      var successMessage: String?
      var errorMessage: String?

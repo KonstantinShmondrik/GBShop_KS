@@ -33,13 +33,13 @@ extension Review: ReviewRequestFactory {
                      completionHandler: completionHandler)
     }
     
-    func addReview(review: ReviewResult, completionHandler: @escaping (AFDataResponse<DefaultResponse>) -> Void) {
+    func addReview(review: ReviewResult, completionHandler: @escaping (AFDataResponse<DefaultResult>) -> Void) {
         let requestModel = AddReviews(baseURL: baseUrl, review: review)
         self.request(request: requestModel,
                      completionHandler: completionHandler)
     }
     
-    func removeReview(review: ReviewResult, completionHandler: @escaping (AFDataResponse<DefaultResponse>) -> Void) {
+    func removeReview(review: ReviewResult, completionHandler: @escaping (AFDataResponse<DefaultResult>) -> Void) {
         let requestModel = RemoveReviews(baseURL: baseUrl, review: review)
         self.request(request: requestModel,
                      completionHandler: completionHandler)

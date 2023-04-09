@@ -28,7 +28,7 @@ class RequestsReviewTests: XCTestCase {
     }
     
     func testShouldPerformGetReviewsRequest() {
-        let factory = requestFactory.makeGetRewiewRequestFactory()
+        let factory = requestFactory.makeRewiewRequestFactory()
         
         factory.getReviews(productId: 123) { response in
             switch response.result {
@@ -41,7 +41,7 @@ class RequestsReviewTests: XCTestCase {
     }
     
     func testShouldPerformAddReviewsRequest() {
-        let factory = requestFactory.makeAddRewiewRequestFactory()
+        let factory = requestFactory.makeRewiewRequestFactory()
         
         factory.addReview(review: ReviewResult(userId: 123, reviewText: "Хороший товар - надо брать!", productId: 123)) { [weak self] response in
             switch response.result {
@@ -56,7 +56,7 @@ class RequestsReviewTests: XCTestCase {
     }
     
     func testShouldPerformRemoveReviewsRequest() {
-        let factory = requestFactory.makeAddRewiewRequestFactory()
+        let factory = requestFactory.makeRewiewRequestFactory()
         
         factory.removeReview(review: ReviewResult(userId: 123, reviewText: "Хороший товар - надо брать!", productId: 123)) { [weak self] response in
             switch response.result {
