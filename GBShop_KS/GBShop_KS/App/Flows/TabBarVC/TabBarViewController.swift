@@ -12,24 +12,34 @@ final class TabBarViewController: UITabBarController, UITabBarControllerDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         self.delegate = self
+        view.accessibilityIdentifier = "tabBarViewController"
         
-        let welcomeScreenVC = WelcomeScreenViewController()
+        let catalogVC = CatalogTableViewController()
         
-        let tabBarItemWelcomeScreen = UITabBarItem(title: "Главная",
+        let tabBarItemWelcomeScreen = UITabBarItem(title: "Каталог",
                                                    image: UIImage(systemName: "app"),
                                                    selectedImage: UIImage(systemName: "app.fill"))
         
-        welcomeScreenVC.tabBarItem = tabBarItemWelcomeScreen
+        catalogVC.tabBarItem = tabBarItemWelcomeScreen
         
         
-        let EditDataVC = EditDataViewController()
+        let editDataVC = EditDataViewController()
         
         let tabBarItemEditData = UITabBarItem(title: "Пользователь",
                                               image: UIImage(systemName: "person.crop.circle"),
                                               selectedImage: UIImage(systemName: "person.crop.circle.fill"))
         
-        EditDataVC.tabBarItem = tabBarItemEditData
-        self.viewControllers = [welcomeScreenVC, EditDataVC]
+        editDataVC.tabBarItem = tabBarItemEditData
+        
+        let basketVC = BasketTableViewController()
+        
+        let tabBarItemBasket = UITabBarItem(title: "Корзина",
+                                              image: UIImage(systemName: "cart"),
+                                              selectedImage: UIImage(systemName: "cart.fill"))
+        
+        basketVC.tabBarItem = tabBarItemBasket
+       
+        self.viewControllers = [catalogVC, basketVC, editDataVC]
         
     }
 }

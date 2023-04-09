@@ -65,14 +65,14 @@ class EditDataViewController: UIViewController {
                                       handler: {action in
             let changeUserData = self.requestFactory.makeСhangeUserDataFactory()
             
-            changeUserData.changeUserData(user: user) {response in
+            changeUserData.changeUserData(user: user) { [weak self] response in
                 DispatchQueue.main.async {
                     switch response.result {
                     case .success(let result):
-                        result.result == 1 ? self.savedEditUserData() : self.showError(result.errorMessage ?? "Неизвестная ошибка.")
+                        result.result == 1 ? self?.savedEditUserData() : self?.showError(result.errorMessage ?? "Неизвестная ошибка.")
                         print(result)
                     case .failure(let error):
-                        self.showError(error.localizedDescription)
+                        self?.showError(error.localizedDescription)
                         print(error.localizedDescription)
                     }
                 }
@@ -105,14 +105,14 @@ class EditDataViewController: UIViewController {
                                       style: .cancel,
                                       handler: {action in
             let auth = self.requestFactory.makeAuthRequestFactory()
-            auth.logout(userID: user.id ?? 0) { response in
+            auth.logout(userID: user.id ?? 0) { [weak self] response in
                 DispatchQueue.main.async {
                     switch response.result {
                     case .success(let result):
-                        result.result == 1 ? self.logOut() : self.showError(result.errorMessage ?? "Неизвестная ошибка.")
+                        result.result == 1 ? self?.logOut() : self?.showError(result.errorMessage ?? "Неизвестная ошибка.")
                         print(result)
                     case .failure(let error):
-                        self.showError(error.localizedDescription)
+                        self?.showError(error.localizedDescription)
                         print(error.localizedDescription)
                     }
                 }

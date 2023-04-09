@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseCrashlytics
 
 protocol AuthViewProtocol: AnyObject {
     func tapLoginButton(userName: String, password: String)
@@ -49,8 +50,9 @@ class AuthView: UIView {
     }()
     
     private(set) lazy var loginButton: UIButton = {
-        let button = UIButton()
+        let button = UIButton(type: .system)
         button.backgroundColor = .blue
+        button.tintColor = .white
         button.setTitle("Войти", for: .normal)
         button.clipsToBounds = true
         button.layer.cornerRadius = 16.0
@@ -61,7 +63,7 @@ class AuthView: UIView {
     }()
     
     private(set) lazy var registButton: UIButton = {
-        let button = UIButton()
+        let button = UIButton(type: .system)
         button.backgroundColor = .blue
         button.tintColor = .white
         button.layer.cornerRadius = 16.0
@@ -95,6 +97,7 @@ class AuthView: UIView {
         self.setupControls()
         self.registerNotifications()
         self.hideKeyboardGesture()
+        self.setupAccessibily()
     }
     
     required init?(coder: NSCoder) {
@@ -183,6 +186,15 @@ class AuthView: UIView {
         
         scrollView.addGestureRecognizer(hideKeyboardGesture)
     }
+    
+    private func setupAccessibily() {
+        
+        self.accessibilityIdentifier = "loginView"
+        self.loginTexField.accessibilityIdentifier = "loginTexField"
+        self.passwordTexField.accessibilityIdentifier = "passwordTexField"
+        self.loginButton.accessibilityIdentifier = "loginButton"
+        self.registButton.accessibilityIdentifier = "registButton"
+    }
     // MARK: - Actions
     
     @objc private func loginButtonPressed() {
@@ -199,7 +211,9 @@ class AuthView: UIView {
     }
     
     @objc func keyboardWillShow(notification: NSNotification) {
-        guard let userInfo = notification.userInfo else { return }
+        guard let userInfo = notification.userInfo else { Crashlytics.crashlytics().log("userInfo is nill")
+            return
+        }
         
         var keyboardFrame: CGRect = (userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
         var contentInset: UIEdgeInsets = self.scrollView.contentInset

@@ -21,12 +21,22 @@
 		0003750C2888211E0080758D /* StartManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0003750B2888211E0080758D /* StartManager.swift */; };
 		0003750F288821F70080758D /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0003750E288821F70080758D /* AuthViewController.swift */; };
 		00037513288827D60080758D /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00037512288827D60080758D /* AuthView.swift */; };
-		000375182888817B0080758D /* WelcomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000375172888817B0080758D /* WelcomeScreenViewController.swift */; };
 		0003751F288886550080758D /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0003751E288886550080758D /* RegistrationViewController.swift */; };
 		00037521288886830080758D /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00037520288886830080758D /* RegistrationView.swift */; };
 		00037528288C399B0080758D /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00037527288C399B0080758D /* TabBarViewController.swift */; };
 		0003752D288C3C0A0080758D /* EditDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0003752C288C3C0A0080758D /* EditDataViewController.swift */; };
 		00037530288C50A50080758D /* EditDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0003752F288C50A50080758D /* EditDataView.swift */; };
+		0003753228904E410080758D /* CatalogTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0003753128904E410080758D /* CatalogTableViewController.swift */; };
+		00037537289053F90080758D /* CircleImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00037536289053F90080758D /* CircleImageView.swift */; };
+		000375392890587E0080758D /* CatalogTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000375382890587E0080758D /* CatalogTableViewCell.swift */; };
+		0003753C289066920080758D /* Extensions+Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0003753B289066920080758D /* Extensions+Int.swift */; };
+		0003753F2890AC630080758D /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 0003753E2890AC630080758D /* SDWebImage */; };
+		000375472896E4500080758D /* ProductCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000375462896E4500080758D /* ProductCardView.swift */; };
+		000375492896F11A0080758D /* ProductCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000375482896F11A0080758D /* ProductCardViewController.swift */; };
+		0003754B28995F530080758D /* GetReviewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0003754A28995F530080758D /* GetReviewTableViewController.swift */; };
+		0003754D289961550080758D /* GetReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0003754C289961550080758D /* GetReviewTableViewCell.swift */; };
+		000375562899BA350080758D /* AddReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000375552899BA350080758D /* AddReviewViewController.swift */; };
+		000375582899BA5C0080758D /* AddReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000375572899BA5C0080758D /* AddReviewView.swift */; };
 		0025964428525F9500AC90C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0025964328525F9500AC90C7 /* AppDelegate.swift */; };
 		0025964628525F9500AC90C7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0025964528525F9500AC90C7 /* SceneDelegate.swift */; };
 		0025964D28525F9700AC90C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0025964C28525F9700AC90C7 /* Assets.xcassets */; };
@@ -56,6 +66,18 @@
 		004CA944286DD6B7005F2C7F /* Catalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004CA943286DD6B7005F2C7F /* Catalog.swift */; };
 		004CA946286DE7CB005F2C7F /* GoodByldRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004CA945286DE7CB005F2C7F /* GoodByldRequestFactory.swift */; };
 		004CA948286DEA56005F2C7F /* GoodByld.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004CA947286DEA56005F2C7F /* GoodByld.swift */; };
+		005FA3AA28AC307B009C02C9 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005FA3A928AC307B009C02C9 /* SnapshotHelper.swift */; };
+		005FA3AD28AC46E0009C02C9 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 005FA3AC28AC46E0009C02C9 /* FirebaseAnalytics */; };
+		005FA3AF28AC46E0009C02C9 /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = 005FA3AE28AC46E0009C02C9 /* FirebaseAnalyticsOnDeviceConversion */; };
+		005FA3B128AC46E0009C02C9 /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 005FA3B028AC46E0009C02C9 /* FirebaseAnalyticsSwift */; };
+		005FA3B328AC46E0009C02C9 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = 005FA3B228AC46E0009C02C9 /* FirebaseAnalyticsWithoutAdIdSupport */; };
+		005FA3B528AC46E0009C02C9 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 005FA3B428AC46E0009C02C9 /* FirebaseCrashlytics */; };
+		00B747C628A0222F00EE595F /* AppBasket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B747C528A0222F00EE595F /* AppBasket.swift */; };
+		00B747C928A0415C00EE595F /* BasketTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B747C828A0415C00EE595F /* BasketTableViewController.swift */; };
+		00B747CD28A0437400EE595F /* BascetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B747CC28A0437400EE595F /* BascetTableViewCell.swift */; };
+		00B747CF28A0530D00EE595F /* FooterBasketTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B747CE28A0530D00EE595F /* FooterBasketTableViewCell.swift */; };
+		00EBCA5D28A7F77800CE60A9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 00EBCA5C28A7F77800CE60A9 /* GoogleService-Info.plist */; };
+		00EBCA6028A812C100CE60A9 /* GALogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00EBCA5F28A812C100CE60A9 /* GALogger.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,12 +112,21 @@
 		0003750B2888211E0080758D /* StartManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartManager.swift; sourceTree = "<group>"; };
 		0003750E288821F70080758D /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		00037512288827D60080758D /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
-		000375172888817B0080758D /* WelcomeScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreenViewController.swift; sourceTree = "<group>"; };
 		0003751E288886550080758D /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		00037520288886830080758D /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		00037527288C399B0080758D /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		0003752C288C3C0A0080758D /* EditDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDataViewController.swift; sourceTree = "<group>"; };
 		0003752F288C50A50080758D /* EditDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDataView.swift; sourceTree = "<group>"; };
+		0003753128904E410080758D /* CatalogTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogTableViewController.swift; sourceTree = "<group>"; };
+		00037536289053F90080758D /* CircleImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImageView.swift; sourceTree = "<group>"; };
+		000375382890587E0080758D /* CatalogTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogTableViewCell.swift; sourceTree = "<group>"; };
+		0003753B289066920080758D /* Extensions+Int.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+Int.swift"; sourceTree = "<group>"; };
+		000375462896E4500080758D /* ProductCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCardView.swift; sourceTree = "<group>"; };
+		000375482896F11A0080758D /* ProductCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCardViewController.swift; sourceTree = "<group>"; };
+		0003754A28995F530080758D /* GetReviewTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetReviewTableViewController.swift; sourceTree = "<group>"; };
+		0003754C289961550080758D /* GetReviewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetReviewTableViewCell.swift; sourceTree = "<group>"; };
+		000375552899BA350080758D /* AddReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReviewViewController.swift; sourceTree = "<group>"; };
+		000375572899BA5C0080758D /* AddReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReviewView.swift; sourceTree = "<group>"; };
 		0025964028525F9400AC90C7 /* GBShop_KS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GBShop_KS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0025964328525F9500AC90C7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0025964528525F9500AC90C7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -128,6 +159,13 @@
 		004CA943286DD6B7005F2C7F /* Catalog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Catalog.swift; sourceTree = "<group>"; };
 		004CA945286DE7CB005F2C7F /* GoodByldRequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodByldRequestFactory.swift; sourceTree = "<group>"; };
 		004CA947286DEA56005F2C7F /* GoodByld.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodByld.swift; sourceTree = "<group>"; };
+		005FA3A928AC307B009C02C9 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = fastlane/SnapshotHelper.swift; sourceTree = SOURCE_ROOT; };
+		00B747C528A0222F00EE595F /* AppBasket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppBasket.swift; sourceTree = "<group>"; };
+		00B747C828A0415C00EE595F /* BasketTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketTableViewController.swift; sourceTree = "<group>"; };
+		00B747CC28A0437400EE595F /* BascetTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BascetTableViewCell.swift; sourceTree = "<group>"; };
+		00B747CE28A0530D00EE595F /* FooterBasketTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterBasketTableViewCell.swift; sourceTree = "<group>"; };
+		00EBCA5C28A7F77800CE60A9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../GoogleService-Info.plist"; sourceTree = "<group>"; };
+		00EBCA5F28A812C100CE60A9 /* GALogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GALogger.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,7 +173,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0003753F2890AC630080758D /* SDWebImage in Frameworks */,
+				005FA3B328AC46E0009C02C9 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
 				0032D229286110AF001CFA8A /* Alamofire in Frameworks */,
+				005FA3B528AC46E0009C02C9 /* FirebaseCrashlytics in Frameworks */,
+				005FA3AD28AC46E0009C02C9 /* FirebaseAnalytics in Frameworks */,
+				005FA3AF28AC46E0009C02C9 /* FirebaseAnalyticsOnDeviceConversion in Frameworks */,
+				005FA3B128AC46E0009C02C9 /* FirebaseAnalyticsSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -224,28 +268,29 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		00037514288881350080758D /* WelcomeScreen */ = {
+		00037514288881350080758D /* Catalog */ = {
 			isa = PBXGroup;
 			children = (
 				00037515288881520080758D /* Controller */,
-				000375162888815D0080758D /* View */,
+				000375162888815D0080758D /* Cell */,
 			);
-			path = WelcomeScreen;
+			path = Catalog;
 			sourceTree = "<group>";
 		};
 		00037515288881520080758D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				000375172888817B0080758D /* WelcomeScreenViewController.swift */,
+				0003753128904E410080758D /* CatalogTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		000375162888815D0080758D /* View */ = {
+		000375162888815D0080758D /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				000375382890587E0080758D /* CatalogTableViewCell.swift */,
 			);
-			path = View;
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		00037519288884650080758D /* Registration */ = {
@@ -306,6 +351,106 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		00037535289053700080758D /* UIComponents */ = {
+			isa = PBXGroup;
+			children = (
+				00037536289053F90080758D /* CircleImageView.swift */,
+			);
+			path = UIComponents;
+			sourceTree = "<group>";
+		};
+		0003753A289066740080758D /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				0003753B289066920080758D /* Extensions+Int.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		000375432896DFA70080758D /* ProductCard */ = {
+			isa = PBXGroup;
+			children = (
+				000375452896DFD50080758D /* Controller */,
+				000375442896DFCE0080758D /* View */,
+			);
+			path = ProductCard;
+			sourceTree = "<group>";
+		};
+		000375442896DFCE0080758D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				000375462896E4500080758D /* ProductCardView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		000375452896DFD50080758D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				000375482896F11A0080758D /* ProductCardViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		0003754E2899A2680080758D /* Review */ = {
+			isa = PBXGroup;
+			children = (
+				000375512899A47F0080758D /* GetReview */,
+				000375522899A49C0080758D /* AddReview */,
+			);
+			path = Review;
+			sourceTree = "<group>";
+		};
+		0003754F2899A2800080758D /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				0003754C289961550080758D /* GetReviewTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		000375502899A2890080758D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				0003754A28995F530080758D /* GetReviewTableViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		000375512899A47F0080758D /* GetReview */ = {
+			isa = PBXGroup;
+			children = (
+				000375502899A2890080758D /* Controller */,
+				0003754F2899A2800080758D /* Cell */,
+			);
+			path = GetReview;
+			sourceTree = "<group>";
+		};
+		000375522899A49C0080758D /* AddReview */ = {
+			isa = PBXGroup;
+			children = (
+				000375542899B9DB0080758D /* Controller */,
+				000375532899B9D30080758D /* View */,
+			);
+			path = AddReview;
+			sourceTree = "<group>";
+		};
+		000375532899B9D30080758D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				000375572899BA5C0080758D /* AddReviewView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		000375542899B9DB0080758D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				000375552899BA350080758D /* AddReviewViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		0025963728525F9400AC90C7 = {
 			isa = PBXGroup;
 			children = (
@@ -353,6 +498,7 @@
 		0025966328525F9700AC90C7 /* GBShop_KSUITests */ = {
 			isa = PBXGroup;
 			children = (
+				005FA3A928AC307B009C02C9 /* SnapshotHelper.swift */,
 				0025966428525F9700AC90C7 /* GBShop_KSUITests.swift */,
 				0025966628525F9700AC90C7 /* GBShop_KSUITestsLaunchTests.swift */,
 			);
@@ -376,6 +522,7 @@
 			isa = PBXGroup;
 			children = (
 				0025965128525F9700AC90C7 /* Info.plist */,
+				00EBCA5C28A7F77800CE60A9 /* GoogleService-Info.plist */,
 			);
 			path = Environments;
 			sourceTree = "<group>";
@@ -392,6 +539,9 @@
 		0025967628525FB600AC90C7 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				00EBCA5E28A8129400CE60A9 /* GALogger */,
+				0003753A289066740080758D /* Extensions */,
+				00037535289053700080758D /* UIComponents */,
 				0032D22A28611123001CFA8A /* Network */,
 			);
 			path = Core;
@@ -404,7 +554,10 @@
 				0003750D288821CE0080758D /* Auth */,
 				00037519288884650080758D /* Registration */,
 				00037529288C3BAF0080758D /* EditUserData */,
-				00037514288881350080758D /* WelcomeScreen */,
+				00037514288881350080758D /* Catalog */,
+				000375432896DFA70080758D /* ProductCard */,
+				0003754E2899A2680080758D /* Review */,
+				00B747C728A0412400EE595F /* Basket */,
 			);
 			path = Flows;
 			sourceTree = "<group>";
@@ -430,6 +583,7 @@
 		0025967A28525FC700AC90C7 /* BusinessLogic */ = {
 			isa = PBXGroup;
 			children = (
+				00B747C428A0220B00EE595F /* AppBasket */,
 				0003750A288821090080758D /* AppStartManager */,
 				0032D2392861D1D0001CFA8A /* Network */,
 			);
@@ -558,6 +712,48 @@
 			path = GoodByld;
 			sourceTree = "<group>";
 		};
+		00B747C428A0220B00EE595F /* AppBasket */ = {
+			isa = PBXGroup;
+			children = (
+				00B747C528A0222F00EE595F /* AppBasket.swift */,
+			);
+			path = AppBasket;
+			sourceTree = "<group>";
+		};
+		00B747C728A0412400EE595F /* Basket */ = {
+			isa = PBXGroup;
+			children = (
+				00B747CA28A0417D00EE595F /* Controller */,
+				00B747CB28A0418E00EE595F /* Cell */,
+			);
+			path = Basket;
+			sourceTree = "<group>";
+		};
+		00B747CA28A0417D00EE595F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				00B747C828A0415C00EE595F /* BasketTableViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		00B747CB28A0418E00EE595F /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				00B747CC28A0437400EE595F /* BascetTableViewCell.swift */,
+				00B747CE28A0530D00EE595F /* FooterBasketTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		00EBCA5E28A8129400CE60A9 /* GALogger */ = {
+			isa = PBXGroup;
+			children = (
+				00EBCA5F28A812C100CE60A9 /* GALogger.swift */,
+			);
+			path = GALogger;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -568,6 +764,7 @@
 				0025963C28525F9400AC90C7 /* Sources */,
 				0025963D28525F9400AC90C7 /* Frameworks */,
 				0025963E28525F9400AC90C7 /* Resources */,
+				00EBCA5B28A7F66100CE60A9 /* Crashlitics */,
 			);
 			buildRules = (
 			);
@@ -576,6 +773,12 @@
 			name = GBShop_KS;
 			packageProductDependencies = (
 				0032D228286110AF001CFA8A /* Alamofire */,
+				0003753E2890AC630080758D /* SDWebImage */,
+				005FA3AC28AC46E0009C02C9 /* FirebaseAnalytics */,
+				005FA3AE28AC46E0009C02C9 /* FirebaseAnalyticsOnDeviceConversion */,
+				005FA3B028AC46E0009C02C9 /* FirebaseAnalyticsSwift */,
+				005FA3B228AC46E0009C02C9 /* FirebaseAnalyticsWithoutAdIdSupport */,
+				005FA3B428AC46E0009C02C9 /* FirebaseCrashlytics */,
 			);
 			productName = GBShop_KS;
 			productReference = 0025964028525F9400AC90C7 /* GBShop_KS.app */;
@@ -651,6 +854,8 @@
 			mainGroup = 0025963728525F9400AC90C7;
 			packageReferences = (
 				0032D227286110AF001CFA8A /* XCRemoteSwiftPackageReference "Alamofire" */,
+				0003753D2890AC630080758D /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				005FA3AB28AC46E0009C02C9 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 0025964128525F9400AC90C7 /* Products */;
 			projectDirPath = "";
@@ -670,6 +875,7 @@
 			files = (
 				0025965028525F9700AC90C7 /* LaunchScreen.storyboard in Resources */,
 				0025964D28525F9700AC90C7 /* Assets.xcassets in Resources */,
+				00EBCA5D28A7F77800CE60A9 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -689,6 +895,27 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		00EBCA5B28A7F66100CE60A9 /* Crashlitics */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = Crashlitics;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${BUILD_DIR%/Build/*}/SourcePackages/checkouts/firebase-ios-sdk/Crashlytics/run\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		0025963C28525F9400AC90C7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -699,9 +926,15 @@
 				00037500287DBCB80080758D /* BasketRequestFactory.swift in Sources */,
 				0003752D288C3C0A0080758D /* EditDataViewController.swift in Sources */,
 				004CA948286DEA56005F2C7F /* GoodByld.swift in Sources */,
+				0003754B28995F530080758D /* GetReviewTableViewController.swift in Sources */,
 				00037528288C399B0080758D /* TabBarViewController.swift in Sources */,
+				0003754D289961550080758D /* GetReviewTableViewCell.swift in Sources */,
+				000375472896E4500080758D /* ProductCardView.swift in Sources */,
 				004CA946286DE7CB005F2C7F /* GoodByldRequestFactory.swift in Sources */,
+				000375492896F11A0080758D /* ProductCardViewController.swift in Sources */,
 				0032D230286117A4001CFA8A /* ResponseCodable.swift in Sources */,
+				000375582899BA5C0080758D /* AddReviewView.swift in Sources */,
+				00B747CF28A0530D00EE595F /* FooterBasketTableViewCell.swift in Sources */,
 				0032D23B2861D207001CFA8A /* AuthRequestFactory.swift in Sources */,
 				004CA93C286DD083005F2C7F /* GoodByldResult.swift in Sources */,
 				0003751F288886550080758D /* RegistrationViewController.swift in Sources */,
@@ -709,25 +942,33 @@
 				0032D253286223AD001CFA8A /* СhangeUserData.swift in Sources */,
 				004CA93F286DD365005F2C7F /* CatalogRequestFactory.swift in Sources */,
 				00037503287DBF210080758D /* BasketResult.swift in Sources */,
+				00037537289053F90080758D /* CircleImageView.swift in Sources */,
+				00B747C628A0222F00EE595F /* AppBasket.swift in Sources */,
 				00037507287DC4A10080758D /* Basket.swift in Sources */,
 				000374FB287748E60080758D /* Review.swift in Sources */,
 				000374F1287611A30080758D /* DefaultResult.swift in Sources */,
+				000375392890587E0080758D /* CatalogTableViewCell.swift in Sources */,
 				0025964428525F9500AC90C7 /* AppDelegate.swift in Sources */,
 				0032D2512862239C001CFA8A /* СhangeUserDataRequestFactory.swift in Sources */,
+				0003753C289066920080758D /* Extensions+Int.swift in Sources */,
 				0032D24C286212C3001CFA8A /* Registration.swift in Sources */,
+				00B747C928A0415C00EE595F /* BasketTableViewController.swift in Sources */,
 				0003750C2888211E0080758D /* StartManager.swift in Sources */,
 				0032D23D2861D2ED001CFA8A /* Auth.swift in Sources */,
 				0032D24A28621285001CFA8A /* RegistrationRequestFactory.swift in Sources */,
 				000374F92877481B0080758D /* ReviewRequestFactory.swift in Sources */,
 				00037513288827D60080758D /* AuthView.swift in Sources */,
 				00037521288886830080758D /* RegistrationView.swift in Sources */,
+				0003753228904E410080758D /* CatalogTableViewController.swift in Sources */,
 				004CA936286DCA29005F2C7F /* CatalogResult.swift in Sources */,
 				0032D2382861D021001CFA8A /* User.swift in Sources */,
+				00EBCA6028A812C100CE60A9 /* GALogger.swift in Sources */,
 				000374F728773C030080758D /* ReviewResult.swift in Sources */,
-				000375182888817B0080758D /* WelcomeScreenViewController.swift in Sources */,
 				0025964628525F9500AC90C7 /* SceneDelegate.swift in Sources */,
 				0032D23228611E2F001CFA8A /* AbstractRequestFactory.swift in Sources */,
+				000375562899BA350080758D /* AddReviewViewController.swift in Sources */,
 				00037505287DC31C0080758D /* BasketRequest.swift in Sources */,
+				00B747CD28A0437400EE595F /* BascetTableViewCell.swift in Sources */,
 				0032D22E286112AE001CFA8A /* ErrorParser.swift in Sources */,
 				004CA944286DD6B7005F2C7F /* Catalog.swift in Sources */,
 				00037530288C50A50080758D /* EditDataView.swift in Sources */,
@@ -754,6 +995,7 @@
 			files = (
 				0025966528525F9700AC90C7 /* GBShop_KSUITests.swift in Sources */,
 				0025966728525F9700AC90C7 /* GBShop_KSUITestsLaunchTests.swift in Sources */,
+				005FA3AA28AC307B009C02C9 /* SnapshotHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -918,7 +1160,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "gb.GBShop-KS";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.gb.GBShop-KS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -946,7 +1188,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "gb.GBShop-KS";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.gb.GBShop-KS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -1072,6 +1314,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		0003753D2890AC630080758D /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.13.2;
+			};
+		};
 		0032D227286110AF001CFA8A /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
@@ -1080,13 +1330,51 @@
 				minimumVersion = 5.6.1;
 			};
 		};
+		005FA3AB28AC46E0009C02C9 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.4.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		0003753E2890AC630080758D /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0003753D2890AC630080758D /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
 		0032D228286110AF001CFA8A /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 0032D227286110AF001CFA8A /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		005FA3AC28AC46E0009C02C9 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 005FA3AB28AC46E0009C02C9 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		005FA3AE28AC46E0009C02C9 /* FirebaseAnalyticsOnDeviceConversion */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 005FA3AB28AC46E0009C02C9 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsOnDeviceConversion;
+		};
+		005FA3B028AC46E0009C02C9 /* FirebaseAnalyticsSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 005FA3AB28AC46E0009C02C9 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsSwift;
+		};
+		005FA3B228AC46E0009C02C9 /* FirebaseAnalyticsWithoutAdIdSupport */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 005FA3AB28AC46E0009C02C9 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsWithoutAdIdSupport;
+		};
+		005FA3B428AC46E0009C02C9 /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 005FA3AB28AC46E0009C02C9 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

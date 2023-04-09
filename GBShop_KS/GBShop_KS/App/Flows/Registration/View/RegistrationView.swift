@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseCrashlytics
 
 protocol RegistViewProtocol: AnyObject {
     func tapRegistButton(user: User)
@@ -108,8 +109,9 @@ class RegistrationView: UIView {
     }()
     
     private(set) lazy var registButton: UIButton = {
-        let button = UIButton()
+        let button = UIButton(type: .system)
         button.backgroundColor = .blue
+        button.tintColor = .white
         button.setTitle("Зарегестрироваться", for: .normal)
         button.clipsToBounds = true
         button.layer.cornerRadius = 16.0
@@ -120,7 +122,7 @@ class RegistrationView: UIView {
     }()
     
     private(set) lazy var cleanAllButton: UIButton = {
-        let button = UIButton()
+        let button = UIButton(type: .system)
         button.backgroundColor = .blue
         button.tintColor = .white
         button.layer.cornerRadius = 16.0
@@ -153,16 +155,20 @@ class RegistrationView: UIView {
     private func configureUI() {
         self.backgroundColor = .white
         self.addSubview(self.scrollView)
-        self.scrollView.addSubview(self.hederLabel)
-        self.scrollView.addSubview(self.nameTexField)
-        self.scrollView.addSubview(self.lastnameTexField)
-        self.scrollView.addSubview(self.loginTexField)
-        self.scrollView.addSubview(self.passwordTexField)
-        self.scrollView.addSubview(self.emailTexField)
-        self.scrollView.addSubview(self.genderSegmentedControl)
-        self.scrollView.addSubview(self.bioTexField)
-        self.scrollView.addSubview(self.registButton)
-        self.scrollView.addSubview(self.cleanAllButton)
+        
+        [self.hederLabel,
+         self.nameTexField,
+         self.lastnameTexField,
+         self.loginTexField,
+         self.passwordTexField,
+         self.emailTexField,
+         self.genderSegmentedControl,
+         self.bioTexField,
+         self.registButton,
+         self.cleanAllButton
+        ].forEach {
+            self.scrollView.addSubview($0)
+        }
         
         NSLayoutConstraint.activate([
             self.scrollView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 0.0),
@@ -291,7 +297,10 @@ class RegistrationView: UIView {
     }
     
     @objc func keyboardWillShow(notification: NSNotification) {
-        guard let userInfo = notification.userInfo else { return }
+        guard let userInfo = notification.userInfo else {
+            Crashlytics.crashlytics().log("userInfo is nil!")
+            return
+        }
         
         var keyboardFrame: CGRect = (userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
         var contentInset: UIEdgeInsets = self.scrollView.contentInset
