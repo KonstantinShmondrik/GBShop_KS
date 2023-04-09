@@ -12,7 +12,8 @@ class СhangeUserData: AbstractRequestFactory {
     let errorParser: AbstractErrorParser
     let sessionManager: Session
     let queue: DispatchQueue
-    let baseUrl = URL(string: "https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses/")!
+//    let baseUrl = URL(string: "https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses/")!
+    let baseUrl = URL(string: "https://stormy-reef-78957.herokuapp.com/")!
     
     init (
         errorParser: AbstractErrorParser,
@@ -28,7 +29,7 @@ extension СhangeUserData: СhangeUserDataRequestFactory {
     
     
     
-    func changeUserData(user: User, completionHandler: @escaping (AFDataResponse<СhangeUserDataResult>) -> Void) {
+    func changeUserData(user: User, completionHandler: @escaping (AFDataResponse<DefaultResult>) -> Void) {
         let requestModel = UserData(baseURL: baseUrl, user: user)
         self.request(request: requestModel,
                      completionHandler: completionHandler)
@@ -38,23 +39,26 @@ extension СhangeUserData: СhangeUserDataRequestFactory {
 extension СhangeUserData {
     struct UserData: RequestRouter {
         let baseURL: URL
-        let metod: HTTPMethod = .get
+        let metod: HTTPMethod = .post
         let path: String = "changeUserData.json"
         
         let user: User
         var parameters: Parameters? {
             return [
-                "id_user": user.id,
-                "username": user.login ,
+                "id_user": user.id ?? 0,
+                "user_login": user.login ?? "",
                 "password": user.password ?? "",
                 "email": user.email ?? "",
                 "gender": user.gender ?? "",
                 "credit_card": user.creditCard ?? "",
-                "bio": user.bio ?? ""
+                "bio": user.bio ?? "",
+                "user_name": user.name ?? "",
+                "user_lastname": user.lastname ?? ""
             ]
         }
     }
 }
+
 
 
     

@@ -50,7 +50,7 @@ class ResponseCodableTests: XCTestCase {
         AF
             .request("https://jsonplaceholder.typicode.com/posts/1")
             .responseCodable(errorParser: errorParser) { [weak self] (response: DataResponse<PostStub, AFError>) in
-               
+                
                 switch response.result {
                 case .success(_):
                     break

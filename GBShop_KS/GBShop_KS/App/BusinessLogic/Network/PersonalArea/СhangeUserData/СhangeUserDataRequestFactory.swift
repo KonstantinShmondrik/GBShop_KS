@@ -10,5 +10,5 @@ import Alamofire
 
 protocol СhangeUserDataRequestFactory {
     func changeUserData(user: User,
-                  completionHandler: @escaping (AFDataResponse<СhangeUserDataResult>) -> Void)
+                  completionHandler: @escaping (AFDataResponse<DefaultResult>) -> Void)
 }
