@@ -26,8 +26,15 @@ class RegistrationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
+        view.accessibilityIdentifier = "registrationViewController"
+    
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: true)
+        navigationController?.navigationBar.isTranslucent = true
+        navigationController?.navigationItem.hidesBackButton = false
     }
     
     // MARK: - private func
@@ -60,14 +67,14 @@ extension RegistrationViewController: RegistViewProtocol {
     func tapRegistButton(user: User) {
         let regist = requestFactory.makeRegistRequestFactory()
         
-        regist.register(user: user) {response in
+        regist.register(user: user) { [weak self] response in
             DispatchQueue.main.async {
                 switch response.result {
                 case .success(let result):
-                    result.result == 1 ? self.proceedToWelcomeScreen() : self.showError(result.errorMessage ?? "Неизвестная ошибка.")
+                    result.result == 1 ? self?.proceedToWelcomeScreen() : self?.showError(result.errorMessage ?? "Неизвестная ошибка.")
                     print(result)
                 case .failure(let error):
-                    self.showError(error.localizedDescription)
+                    self?.showError(error.localizedDescription)
                     print(error.localizedDescription)
                 }
             }
